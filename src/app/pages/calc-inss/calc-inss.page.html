@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-label>{{ 'Calcular Inss' | uppercase}}</ion-label>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <form [formGroup]="inssForm" class="paddin-input">
+    <ion-item>
+      <ion-label position="stacked">Salário bruto</ion-label>
+      <ion-input
+        placeholder="R$ 0.00"
+        formControlName="grossSalary"
+        type="number"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label *ngIf="inssResult">R$</ion-label>
+      <ion-input
+        disabled
+        placeholder="..."
+        formControlName="inssValue"
+      ></ion-input>
+    </ion-item>
+    <div class="align-items">
+      <span *ngIf="aliquota" class="mr-6">{{'Alíquota:'}}</span>
+      <ion-badge color="medium" *ngIf="aliquota">
+        {{ aliquota }}{{'%'}}
+      </ion-badge>
+    </div>
+    <div class="align-button">
+      <ion-button (click)="onSubmit(inssForm)">Calcular</ion-button><br />
+    </div>
+  </form>
+</ion-content>

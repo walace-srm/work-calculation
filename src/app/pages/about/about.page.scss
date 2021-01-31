@@ -1,0 +1,28 @@
+::ng-deep {
+  ion-content {
+    --background: #eceeee;
+  }
+
+  ion-title {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-right: 0;
+  }
+
+  ion-toolbar {
+    --background: #0c9abe;
+  }
+
+  ion-back-button {
+    --color: #fff;
+  }
+
+  ion-card {
+    text-align: center;
+  }
+}
+
+.color {
+  font-weight: bold;
+}
