@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastController} from '@ionic/angular';
 
+import { fiscalRules } from '../../../consts/fiscal-roles';
+
 @Component({
   selector: 'app-calc-irrf',
   templateUrl: './calc-irrf.page.html',
@@ -15,7 +17,6 @@ export class CalcIrrfPage {
   public calculatedIrrf: number;
 
   public baseCalculation: number;
-  public irrfResult: number;
   public valueDependent = 189.59;
 
   constructor(
@@ -32,6 +33,10 @@ export class CalcIrrfPage {
 
   calcInss() {
     if (this.grossSalary === 1100) {
+      /**
+       * Será implementado futuramente
+       **/
+      // this.inssValue = fiscalRules.inssValue;
       this.inssValue = 82.50;
     } else if ((this.grossSalary > 1100) && (this.grossSalary < 2203.49)) {
       this.inssValue = 99.31;
@@ -54,8 +59,8 @@ export class CalcIrrfPage {
   calcIrrf() {
     const dependentCalculation = this.irrfForm.value.dependentValue * this.valueDependent;
     const baseSalary = this.grossSalary - this.calculatedInss;
-    if ((baseSalary < 1903.98)) {
-      this.calculatedIrrf = 0;
+    if ((baseSalary < 1903.98) || (this.grossSalary < 1903.98)) {
+      this.calculatedIrrf = undefined;
       this.taxFreeToast();
     }
     else if ((baseSalary > 1903.98) && (baseSalary < 2826.66)) {
@@ -74,13 +79,9 @@ export class CalcIrrfPage {
       irrfValue: this.calculatedIrrf?.toFixed(2).toString().replace('.', ','),
       dependentValue: this.irrfForm.value.dependentValue
     });
-    this.irrfResult = this.calculatedIrrf;
     this.baseCalculation = this.grossSalary - this.calculatedInss;
   }
 
-  doRefresh() {
-    location.reload();
-  }
   async taxFreeToast() {
     const toast = await this.toastController.create({
       message: 'Isento de imposto de renda!',
@@ -99,10 +100,16 @@ export class CalcIrrfPage {
     toast.present();
   }
 
+  resetForm() {
+    this.irrfForm.reset();
+    this.baseCalculation = undefined;
+    this.calculatedIrrf = undefined;
+    this.calculatedInss = undefined;
+  }
 
   onSubmit({value, valid}: {value: any; valid: boolean}) {
     if (!valid) {
-      this.reportSalaryToast();
+      return this.reportSalaryToast();
     }
     this.grossSalary = value.grossSalary;
     this.calcInss();

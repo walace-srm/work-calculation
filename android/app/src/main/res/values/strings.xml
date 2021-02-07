@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Cálculo Trabalhista</string>
+    <string name="title_activity_main">Cálculo Trabalhista</string>
+    <string name="package_name">work.calculation</string>
+    <string name="custom_url_scheme">work.calculation</string>
+</resources>

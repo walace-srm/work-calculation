@@ -13,7 +13,7 @@ export class CalcInssPage  {
   public grossSalary: number;
   public inssValue: number;
   public calculatedInss: number;
-  public inssResult: number;
+  //public inssResult: number;
   public aliquota: any;
 
   constructor(
@@ -29,6 +29,7 @@ export class CalcInssPage  {
   calcInss() {
     if (this.grossSalary < 1100) {
       this.lowerSalaryToast();
+      this.calculatedInss = undefined;
     }
     if (this.grossSalary === 1100) {
       this.inssValue = 82.50;
@@ -54,11 +55,7 @@ export class CalcInssPage  {
     this.inssForm.patchValue({
       inssValue: this.calculatedInss?.toFixed(2).toString().replace('.', ',')
     });
-    this.inssResult = this.calculatedInss;
-  }
-
-  doRefresh() {
-    location.reload();
+    //this.inssResult = this.calculatedInss;
   }
 
   async lowerSalaryToast() {
@@ -77,6 +74,11 @@ export class CalcInssPage  {
       color: 'medium'
     });
     toast.present();
+  }
+
+  resetForm() {
+    this.inssForm.reset();
+    this.calculatedInss = undefined;
   }
 
   onSubmit({ value, valid}: {value: any; valid: boolean }) {

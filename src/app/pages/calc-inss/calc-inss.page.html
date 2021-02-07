@@ -10,9 +10,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh()">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
   <form [formGroup]="inssForm" class="paddin-input">
     <ion-item>
       <ion-label position="stacked">Salário bruto</ion-label>
@@ -23,7 +20,7 @@
       ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label *ngIf="inssResult">R$</ion-label>
+      <ion-label *ngIf="inssForm.value.inssValue">R$</ion-label>
       <ion-input
         disabled
         placeholder="..."
@@ -31,13 +28,14 @@
       ></ion-input>
     </ion-item>
     <div class="align-items">
-      <span *ngIf="aliquota" class="mr-6">{{'Alíquota:'}}</span>
-      <ion-badge color="medium" *ngIf="aliquota">
+      <span *ngIf="aliquota && inssForm.value.inssValue" class="mr-6">{{'Alíquota:'}}</span>
+      <ion-badge color="medium" *ngIf="aliquota && inssForm.value.inssValue">
         {{ aliquota }}{{'%'}}
       </ion-badge>
     </div>
     <div class="align-button">
-      <ion-button (click)="onSubmit(inssForm)">Calcular</ion-button><br />
+      <ion-button (click)="onSubmit(inssForm)">Calcular</ion-button>
+      <ion-button (click)="resetForm()" color="light">Limpar</ion-button>
     </div>
   </form>
 </ion-content>

@@ -12,9 +12,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh()">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
   <form [formGroup]="irrfForm" class="paddin-input">
     <ion-item>
       <ion-label position="stacked">Salário bruto:</ion-label>
@@ -32,18 +29,20 @@
     </ion-item>
 
     <ion-item>
-      <ion-label *ngIf="irrfResult">R$</ion-label>
+      <ion-label *ngIf="irrfForm.value.irrfValue">R$</ion-label>
       <ion-input disabled placeholder="..." formControlName="irrfValue">
       </ion-input>
     </ion-item>
     <div class="align-items">
-      <span *ngIf="baseCalculation">{{'Base para cálculo: '}}</span>
-      <ion-badge color="medium" *ngIf="baseCalculation">
+      <span *ngIf="baseCalculation > 1">{{'Base para cálculo: '}}</span>
+      <ion-badge color="medium" *ngIf="baseCalculation > 1">
         {{'R$ '}}{{ baseCalculation.toFixed(2).toString().replace('.', ',') }}
       </ion-badge>
     </div>
     <div class="align-button">
       <ion-button (click)="onSubmit(irrfForm)">Calcular</ion-button>
+      <ion-button (click)="resetForm()" color="light">Limpar</ion-button>
     </div>
+
   </form>
 </ion-content>
