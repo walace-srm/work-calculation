@@ -105,6 +105,11 @@ export class CalcIrrfPage {
     this.baseCalculation = undefined;
     this.calculatedIrrf = undefined;
     this.calculatedInss = undefined;
+    this.grossSalary = undefined;
+  }
+
+  print() {
+    window.print();
   }
 
   onSubmit({value, valid}: {value: any; valid: boolean}) {

@@ -41,7 +41,8 @@
     </div>
     <div class="align-button">
       <ion-button (click)="onSubmit(irrfForm)">Calcular</ion-button>
-      <ion-button (click)="resetForm()" color="light">Limpar</ion-button>
+      <ion-button *ngIf="grossSalary" (click)="resetForm()" color="light">Limpar</ion-button>
+      <ion-button *ngIf="calculatedIrrf" (click)="print()" color="light">Gerar PDF</ion-button>
     </div>
 
   </form>

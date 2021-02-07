@@ -79,6 +79,10 @@ export class CalcInssPage  {
     this.calculatedInss = undefined;
   }
 
+  print() {
+    window.print();
+  }
+
   onSubmit({ value, valid}: {value: any; valid: boolean }) {
     if (!valid) {
       return this.reportSalaryToast();
