@@ -77,6 +77,17 @@ export class CalcInssPage  {
   resetForm() {
     this.inssForm.reset();
     this.calculatedInss = undefined;
+    this.grossSalary = undefined;
+  }
+
+  showClearButton(e) {
+    this.grossSalary = e;
+    if (!e) {
+      this.inssForm.patchValue({
+        inssValue: this.inssForm.value.inssValue = undefined
+      });
+      this.calculatedInss = undefined;
+    }
   }
 
   print() {
@@ -89,6 +100,7 @@ export class CalcInssPage  {
     }
     this.grossSalary = value.grossSalary;
     this.calcInss();
+    this.inssForm.markAsPristine();
   }
 
 }

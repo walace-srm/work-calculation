@@ -108,6 +108,17 @@ export class CalcIrrfPage {
     this.grossSalary = undefined;
   }
 
+  showClearButton(e) {
+    this.grossSalary = e;
+    if (!e) {
+      this.irrfForm.patchValue({
+        irrfValue: this.irrfForm.value.irrfValue = undefined
+      });
+      this.calculatedIrrf = undefined;
+      this.baseCalculation = undefined;
+    }
+  }
+
   print() {
     window.print();
   }

@@ -15,8 +15,9 @@
       <ion-label position="stacked">Salário bruto</ion-label>
       <ion-input
         placeholder="R$ 0.00"
-        formControlName="grossSalary"
         type="number"
+        (ngModelChange)="showClearButton($event)"
+        formControlName="grossSalary"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -35,7 +36,7 @@
     </div>
     <div class="align-button">
       <ion-button (click)="onSubmit(inssForm)">Calcular</ion-button>
-      <ion-button *ngIf="calculatedInss" (click)="resetForm()" color="light">Limpar</ion-button>
+      <ion-button *ngIf="grossSalary" (click)="resetForm()" color="light">Limpar</ion-button>
       <ion-button *ngIf="calculatedInss" (click)="print()" color="light">Gerar PDF</ion-button>
     </div>
   </form>
