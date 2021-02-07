@@ -13,7 +13,6 @@ export class CalcInssPage  {
   public grossSalary: number;
   public inssValue: number;
   public calculatedInss: number;
-  //public inssResult: number;
   public aliquota: any;
 
   constructor(
@@ -55,7 +54,6 @@ export class CalcInssPage  {
     this.inssForm.patchValue({
       inssValue: this.calculatedInss?.toFixed(2).toString().replace('.', ',')
     });
-    //this.inssResult = this.calculatedInss;
   }
 
   async lowerSalaryToast() {
