@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastController} from '@ionic/angular';
+import {PDFGenerator} from '@ionic-native/pdf-generator/ngx';
 
 @Component({
   selector: 'app-calc-inss',
@@ -13,11 +14,13 @@ export class CalcInssPage  {
   public grossSalary: number;
   public inssValue: number;
   public calculatedInss: number;
+  public calculatedInssPdf: any;
   public aliquota: any;
 
   constructor(
       private formBuilder: FormBuilder,
-      public toastController: ToastController
+      public toastController: ToastController,
+      private pdfGenerator: PDFGenerator
   ) {
     this.inssForm = this.formBuilder.group({
       grossSalary: ['', Validators.required],
@@ -54,6 +57,7 @@ export class CalcInssPage  {
     this.inssForm.patchValue({
       inssValue: this.calculatedInss?.toFixed(2).toString().replace('.', ',')
     });
+    this.calculatedInssPdf = this.calculatedInss.toFixed(2).toString().replace('.', ',');
   }
 
   async lowerSalaryToast() {
@@ -90,8 +94,12 @@ export class CalcInssPage  {
     }
   }
 
-  print() {
-    window.print();
+  generatorPdf() {
+    const hidden = document.getElementById('remove');
+    hidden.removeAttribute('hidden');
+    hidden.setAttribute('hidden', '');
+    const a: any = document.getElementById('print');
+    this.pdfGenerator.fromData(a.innerHTML, { type: 'share' });
   }
 
   onSubmit({ value, valid}: {value: any; valid: boolean }) {

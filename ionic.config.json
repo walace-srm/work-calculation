@@ -1,5 +1,7 @@
 {
   "name": "work-calculation",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

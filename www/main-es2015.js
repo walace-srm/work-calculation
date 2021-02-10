@@ -302,11 +302,11 @@ const routes = [
     },
     {
         path: 'calc-inss',
-        loadChildren: () => __webpack_require__.e(/*! import() | pages-calc-inss-calc-inss-module */ "pages-calc-inss-calc-inss-module").then(__webpack_require__.bind(null, /*! ./pages/calc-inss/calc-inss.module */ "./src/app/pages/calc-inss/calc-inss.module.ts")).then(m => m.CalcInssPageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-calc-inss-calc-inss-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-calc-inss-calc-inss-module")]).then(__webpack_require__.bind(null, /*! ./pages/calc-inss/calc-inss.module */ "./src/app/pages/calc-inss/calc-inss.module.ts")).then(m => m.CalcInssPageModule)
     },
     {
         path: 'calc-irrf',
-        loadChildren: () => __webpack_require__.e(/*! import() | pages-calc-irrf-calc-irrf-module */ "pages-calc-irrf-calc-irrf-module").then(__webpack_require__.bind(null, /*! ./pages/calc-irrf/calc-irrf.module */ "./src/app/pages/calc-irrf/calc-irrf.module.ts")).then(m => m.CalcIrrfPageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-calc-irrf-calc-irrf-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-calc-irrf-calc-irrf-module")]).then(__webpack_require__.bind(null, /*! ./pages/calc-irrf/calc-irrf.module */ "./src/app/pages/calc-irrf/calc-irrf.module.ts")).then(m => m.CalcIrrfPageModule)
     },
     {
         path: 'release-notes',

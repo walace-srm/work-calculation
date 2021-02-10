@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <div class=\"title\">\n        <ion-label>{{ 'Calcular IRRF' | uppercase}}</ion-label>\n      </div>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <form [formGroup]=\"irrfForm\" class=\"paddin-input\">\n    <ion-item>\n      <ion-label position=\"stacked\">Salário bruto:</ion-label>\n      <ion-input\n        placeholder=\"R$ 0.00\"\n        formControlName=\"grossSalary\"\n        type=\"number\"\n      ></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\">Número de dependentes:</ion-label>\n      <ion-input placeholder=\"0\" type=\"number\" formControlName=\"dependentValue\">\n      </ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label *ngIf=\"irrfResult && irrfForm.value.irrfValue\">R$</ion-label>\n      <ion-input disabled placeholder=\"...\" formControlName=\"irrfValue\">\n      </ion-input>\n    </ion-item>\n    <div class=\"align-items\">\n      <span *ngIf=\"baseCalculation\">{{'Base para cálculo: '}}</span>\n      <ion-badge color=\"medium\" *ngIf=\"baseCalculation\">\n        {{'R$ '}}{{ baseCalculation.toFixed(2).toString().replace('.', ',') }}\n      </ion-badge>\n    </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(irrfForm)\">Calcular</ion-button>\n      <ion-button (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n    </div>\n\n  </form>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <div class=\"title\">\n        <ion-label>{{ 'Calcular IRRF' | uppercase}}</ion-label>\n      </div>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <form [formGroup]=\"irrfForm\" class=\"paddin-input\">\n    <ion-item>\n      <ion-label position=\"stacked\">Salário bruto:</ion-label>\n      <ion-input\n        placeholder=\"R$ 0.00\"\n        type=\"number\"\n        (ngModelChange)=\"showClearButton($event)\"\n        formControlName=\"grossSalary\"\n      ></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\">Número de dependentes:</ion-label>\n      <ion-input placeholder=\"0\" type=\"number\" formControlName=\"dependentValue\">\n      </ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label *ngIf=\"irrfForm.value.irrfValue\">R$</ion-label>\n      <ion-input disabled placeholder=\"...\" formControlName=\"irrfValue\">\n      </ion-input>\n    </ion-item>\n    <div class=\"align-items\">\n      <span *ngIf=\"baseCalculation > 1\">{{'Base para cálculo: '}}</span>\n      <ion-badge color=\"medium\" *ngIf=\"baseCalculation > 1\">\n        {{'R$ '}}{{ baseCalculation.toFixed(2).toString().replace('.', ',') }}\n      </ion-badge>\n    </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(irrfForm)\">Calcular</ion-button>\n      <ion-button *ngIf=\"grossSalary\" (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n      <ion-button *ngIf=\"calculatedIrrf\" (click)=\"generatorPdf()\" color=\"light\">Gerar PDF</ion-button>\n    </div>\n  </form>\n</ion-content>\n<!--Gerar PDF-->\n<!--Preciso melhorar isso-->\n<div hidden id=\"remove\">\n  <div id=\"print\">\n    <h1 style=\"display: flex; justify-content: center; margin-bottom: 40px;\">CÁLCULO IRRF</h1><br>\n    <div style=\"width: 100%\">\n      <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px\">Salário bruto:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + grossSalary }}</span>\n      </div>\n\n      <div style=\"display: flex; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px;\">Desconto:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + calculatedIrrfPdf }}</span>\n      </div>\n\n      <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px;\">Base para cálculo:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + baseCalculationPdf }}</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n";
       /***/
     },
 
@@ -222,13 +222,20 @@
       var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @ionic/angular */
       "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _ionic_native_pdf_generator_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic-native/pdf-generator/ngx */
+      "./node_modules/@ionic-native/pdf-generator/__ivy_ngcc__/ngx/index.js");
 
       var CalcIrrfPage = /*#__PURE__*/function () {
-        function CalcIrrfPage(formBuilder, toastController) {
+        function CalcIrrfPage(formBuilder, toastController, pdfGenerator) {
           _classCallCheck(this, CalcIrrfPage);
 
           this.formBuilder = formBuilder;
           this.toastController = toastController;
+          this.pdfGenerator = pdfGenerator;
           this.valueDependent = 189.59;
           this.irrfForm = this.formBuilder.group({
             grossSalary: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -242,7 +249,10 @@
           key: "calcInss",
           value: function calcInss() {
             if (this.grossSalary === 1100) {
-              //this.inssValue = fiscalRules.inssValue;
+              /**
+               * Será implementado futuramente
+               **/
+              // this.inssValue = fiscalRules.inssValue;
               this.inssValue = 82.50;
             } else if (this.grossSalary > 1100 && this.grossSalary < 2203.49) {
               this.inssValue = 99.31;
@@ -270,8 +280,8 @@
             var dependentCalculation = this.irrfForm.value.dependentValue * this.valueDependent;
             var baseSalary = this.grossSalary - this.calculatedInss;
 
-            if (baseSalary < 1903.98) {
-              this.calculatedIrrf = 0;
+            if (baseSalary < 1903.98 || this.grossSalary < 1903.98) {
+              this.calculatedIrrf = undefined;
               this.taxFreeToast();
             } else if (baseSalary > 1903.98 && baseSalary < 2826.66) {
               this.calculatedIrrf = (this.grossSalary - this.calculatedInss - dependentCalculation) * 7.5 / 100 - 142.80;
@@ -288,6 +298,8 @@
               dependentValue: this.irrfForm.value.dependentValue
             });
             this.baseCalculation = this.grossSalary - this.calculatedInss;
+            this.calculatedIrrfPdf = this.calculatedIrrf.toFixed(2).toString().replace('.', ',');
+            this.baseCalculationPdf = this.baseCalculation.toString().replace('.', ',');
           }
         }, {
           key: "taxFreeToast",
@@ -350,6 +362,33 @@
           value: function resetForm() {
             this.irrfForm.reset();
             this.baseCalculation = undefined;
+            this.calculatedIrrf = undefined;
+            this.calculatedInss = undefined;
+            this.grossSalary = undefined;
+          }
+        }, {
+          key: "showClearButton",
+          value: function showClearButton(e) {
+            this.grossSalary = e;
+
+            if (!e) {
+              this.irrfForm.patchValue({
+                irrfValue: this.irrfForm.value.irrfValue = undefined
+              });
+              this.calculatedIrrf = undefined;
+              this.baseCalculation = undefined;
+            }
+          }
+        }, {
+          key: "generatorPdf",
+          value: function generatorPdf() {
+            var hidden = document.getElementById('remove');
+            hidden.removeAttribute('hidden');
+            hidden.setAttribute('hidden', '');
+            var a = document.getElementById('print');
+            this.pdfGenerator.fromData(a.innerHTML, {
+              type: 'share'
+            });
           }
         }, {
           key: "onSubmit",
@@ -375,6 +414,8 @@
           type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
         }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]
+        }, {
+          type: _ionic_native_pdf_generator_ngx__WEBPACK_IMPORTED_MODULE_4__["PDFGenerator"]
         }];
       };
 

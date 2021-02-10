@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastController} from '@ionic/angular';
 
 import { fiscalRules } from '../../../consts/fiscal-roles';
+import {PDFGenerator} from '@ionic-native/pdf-generator/ngx';
 
 @Component({
   selector: 'app-calc-irrf',
@@ -15,13 +16,16 @@ export class CalcIrrfPage {
   public inssValue: number;
   public calculatedInss: number;
   public calculatedIrrf: number;
+  public calculatedIrrfPdf: any;
 
   public baseCalculation: number;
+  public baseCalculationPdf: any;
   public valueDependent = 189.59;
 
   constructor(
       private formBuilder: FormBuilder,
-      public toastController: ToastController
+      public toastController: ToastController,
+      private pdfGenerator: PDFGenerator
   ) {
     this.irrfForm = this.formBuilder.group({
       grossSalary: ['', Validators.required],
@@ -80,6 +84,8 @@ export class CalcIrrfPage {
       dependentValue: this.irrfForm.value.dependentValue
     });
     this.baseCalculation = this.grossSalary - this.calculatedInss;
+    this.calculatedIrrfPdf = this.calculatedIrrf.toFixed(2).toString().replace('.', ',');
+    this.baseCalculationPdf = this.baseCalculation.toString().replace('.', ',');
   }
 
   async taxFreeToast() {
@@ -119,8 +125,12 @@ export class CalcIrrfPage {
     }
   }
 
-  print() {
-    window.print();
+  generatorPdf() {
+    const hidden = document.getElementById('remove');
+    hidden.removeAttribute('hidden');
+    hidden.setAttribute('hidden', '');
+    const a: any = document.getElementById('print');
+    this.pdfGenerator.fromData(a.innerHTML, { type: 'share' });
   }
 
   onSubmit({value, valid}: {value: any; valid: boolean}) {

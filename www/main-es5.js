@@ -193,9 +193,9 @@
       }, {
         path: 'calc-inss',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | pages-calc-inss-calc-inss-module */
-          "pages-calc-inss-calc-inss-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("common"), __webpack_require__.e("pages-calc-inss-calc-inss-module")]).then(__webpack_require__.bind(null,
           /*! ./pages/calc-inss/calc-inss.module */
           "./src/app/pages/calc-inss/calc-inss.module.ts")).then(function (m) {
             return m.CalcInssPageModule;
@@ -204,9 +204,9 @@
       }, {
         path: 'calc-irrf',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | pages-calc-irrf-calc-irrf-module */
-          "pages-calc-irrf-calc-irrf-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("common"), __webpack_require__.e("pages-calc-irrf-calc-irrf-module")]).then(__webpack_require__.bind(null,
           /*! ./pages/calc-irrf/calc-irrf.module */
           "./src/app/pages/calc-irrf/calc-irrf.module.ts")).then(function (m) {
             return m.CalcIrrfPageModule;

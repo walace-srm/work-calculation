@@ -11,33 +11,58 @@
 
 <ion-content>
   <form [formGroup]="inssForm" class="paddin-input">
-    <ion-item>
-      <ion-label position="stacked">Salário bruto</ion-label>
-      <ion-input
-        placeholder="R$ 0.00"
-        type="number"
-        (ngModelChange)="showClearButton($event)"
-        formControlName="grossSalary"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label *ngIf="inssForm.value.inssValue">R$</ion-label>
-      <ion-input
-        disabled
-        placeholder="..."
-        formControlName="inssValue"
-      ></ion-input>
-    </ion-item>
-    <div class="align-items">
-      <span *ngIf="aliquota && inssForm.value.inssValue" class="mr-6">{{'Alíquota:'}}</span>
-      <ion-badge color="medium" *ngIf="aliquota && inssForm.value.inssValue">
-        {{ aliquota }}{{'%'}}
-      </ion-badge>
+    <div id="">
+      <ion-item>
+        <ion-label position="stacked">Salário bruto</ion-label>
+        <ion-input
+          placeholder="R$ 0.00"
+          type="number"
+          (ngModelChange)="showClearButton($event)"
+          formControlName="grossSalary"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label *ngIf="inssForm.value.inssValue">R$</ion-label>
+        <ion-input
+          disabled
+          placeholder="..."
+          formControlName="inssValue"
+        ></ion-input>
+      </ion-item>
+      <div class="align-items">
+        <span *ngIf="aliquota && inssForm.value.inssValue" class="mr-6">{{'Alíquota:'}}</span>
+        <ion-badge color="medium" *ngIf="aliquota && inssForm.value.inssValue">
+          {{ aliquota }}{{'%'}}
+        </ion-badge>
+      </div>
     </div>
     <div class="align-button">
       <ion-button (click)="onSubmit(inssForm)">Calcular</ion-button>
       <ion-button *ngIf="grossSalary" (click)="resetForm()" color="light">Limpar</ion-button>
-      <ion-button *ngIf="calculatedInss" (click)="print()" color="light">Gerar PDF</ion-button>
+      <ion-button *ngIf="calculatedInss" (click)="generatorPdf()" color="light">Gerar PDF</ion-button>
     </div>
   </form>
 </ion-content>
+<!--Gerar PDF-->
+<!--Preciso melhorar isso-->
+<div hidden id="remove">
+  <div id="print">
+    <h1 style="display: flex; justify-content: center; margin-bottom: 40px;">CÁLCULO INSS</h1><br>
+        <div style="width: 100%">
+          <div style=" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;">
+            <b style="font-size: 35px">Salário bruto:</b>
+            <span style="font-size: 35px;">{{ 'R$ ' + grossSalary }}</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; height: 50px;">
+            <b style="font-size: 35px;">Desconto:</b>
+            <span style="font-size: 35px;">{{ 'R$ ' + calculatedInssPdf }}</span>
+          </div>
+
+          <div style=" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;">
+            <b style="font-size: 35px;">Alíquota:</b>
+            <span style="font-size: 35px;">{{ aliquota + '%' }}</span>
+          </div>
+        </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 {
-  "appId": "com.example.app",
+  "appId": "io.ionic.starter",
   "appName": "work-calculation",
   "bundledWebRuntime": false,
   "npmClient": "npm",

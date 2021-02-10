@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-label>{{ 'Calcular Inss' | uppercase}}</ion-label>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form [formGroup]=\"inssForm\" class=\"paddin-input\">\n    <ion-item>\n      <ion-label position=\"stacked\">Salário bruto</ion-label>\n      <ion-input\n        placeholder=\"R$ 0.00\"\n        formControlName=\"grossSalary\"\n        type=\"number\"\n      ></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label *ngIf=\"inssResult && inssForm.value.inssValue\">R$</ion-label>\n      <ion-input\n        disabled\n        placeholder=\"...\"\n        formControlName=\"inssValue\"\n      ></ion-input>\n    </ion-item>\n    <div class=\"align-items\">\n      <span *ngIf=\"aliquota && inssForm.value.inssValue\" class=\"mr-6\">{{'Alíquota:'}}</span>\n      <ion-badge color=\"medium\" *ngIf=\"aliquota && inssForm.value.inssValue\">\n        {{ aliquota }}{{'%'}}\n      </ion-badge>\n    </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(inssForm)\">Calcular</ion-button>\n      <ion-button (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n    </div>\n  </form>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-label>{{ 'Calcular Inss' | uppercase}}</ion-label>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form [formGroup]=\"inssForm\" class=\"paddin-input\">\n    <div id=\"\">\n      <ion-item>\n        <ion-label position=\"stacked\">Salário bruto</ion-label>\n        <ion-input\n          placeholder=\"R$ 0.00\"\n          type=\"number\"\n          (ngModelChange)=\"showClearButton($event)\"\n          formControlName=\"grossSalary\"\n        ></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label *ngIf=\"inssForm.value.inssValue\">R$</ion-label>\n        <ion-input\n          disabled\n          placeholder=\"...\"\n          formControlName=\"inssValue\"\n        ></ion-input>\n      </ion-item>\n      <div class=\"align-items\">\n        <span *ngIf=\"aliquota && inssForm.value.inssValue\" class=\"mr-6\">{{'Alíquota:'}}</span>\n        <ion-badge color=\"medium\" *ngIf=\"aliquota && inssForm.value.inssValue\">\n          {{ aliquota }}{{'%'}}\n        </ion-badge>\n      </div>\n    </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(inssForm)\">Calcular</ion-button>\n      <ion-button *ngIf=\"grossSalary\" (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n      <ion-button *ngIf=\"calculatedInss\" (click)=\"generatorPdf()\" color=\"light\">Gerar PDF</ion-button>\n    </div>\n  </form>\n</ion-content>\n<!--Gerar PDF-->\n<!--Preciso melhorar isso-->\n<div hidden id=\"remove\">\n  <div id=\"print\">\n    <h1 style=\"display: flex; justify-content: center; margin-bottom: 40px;\">CÁLCULO INSS</h1><br>\n        <div style=\"width: 100%\">\n          <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px\">Salário bruto:</b>\n            <span style=\"font-size: 35px;\">{{ 'R$ ' + grossSalary }}</span>\n          </div>\n\n          <div style=\"display: flex; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px;\">Desconto:</b>\n            <span style=\"font-size: 35px;\">{{ 'R$ ' + calculatedInssPdf }}</span>\n          </div>\n\n          <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px;\">Alíquota:</b>\n            <span style=\"font-size: 35px;\">{{ aliquota + '%' }}</span>\n          </div>\n        </div>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -120,14 +120,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ionic_native_pdf_generator_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/pdf-generator/ngx */ "./node_modules/@ionic-native/pdf-generator/__ivy_ngcc__/ngx/index.js");
+
 
 
 
 
 let CalcInssPage = class CalcInssPage {
-    constructor(formBuilder, toastController) {
+    constructor(formBuilder, toastController, pdfGenerator) {
         this.formBuilder = formBuilder;
         this.toastController = toastController;
+        this.pdfGenerator = pdfGenerator;
         this.inssForm = this.formBuilder.group({
             grossSalary: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             inssValue: ['']
@@ -137,6 +140,7 @@ let CalcInssPage = class CalcInssPage {
         var _a;
         if (this.grossSalary < 1100) {
             this.lowerSalaryToast();
+            this.calculatedInss = undefined;
         }
         if (this.grossSalary === 1100) {
             this.inssValue = 82.50;
@@ -166,7 +170,7 @@ let CalcInssPage = class CalcInssPage {
         this.inssForm.patchValue({
             inssValue: (_a = this.calculatedInss) === null || _a === void 0 ? void 0 : _a.toFixed(2).toString().replace('.', ',')
         });
-        this.inssResult = this.calculatedInss;
+        this.calculatedInssPdf = this.calculatedInss.toFixed(2).toString().replace('.', ',');
     }
     lowerSalaryToast() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -190,7 +194,24 @@ let CalcInssPage = class CalcInssPage {
     }
     resetForm() {
         this.inssForm.reset();
-        console.log('grossSalary', this.grossSalary);
+        this.calculatedInss = undefined;
+        this.grossSalary = undefined;
+    }
+    showClearButton(e) {
+        this.grossSalary = e;
+        if (!e) {
+            this.inssForm.patchValue({
+                inssValue: this.inssForm.value.inssValue = undefined
+            });
+            this.calculatedInss = undefined;
+        }
+    }
+    generatorPdf() {
+        const hidden = document.getElementById('remove');
+        hidden.removeAttribute('hidden');
+        hidden.setAttribute('hidden', '');
+        const a = document.getElementById('print');
+        this.pdfGenerator.fromData(a.innerHTML, { type: 'share' });
     }
     onSubmit({ value, valid }) {
         if (!valid) {
@@ -198,12 +219,13 @@ let CalcInssPage = class CalcInssPage {
         }
         this.grossSalary = value.grossSalary;
         this.calcInss();
-        console.log('grossSalary', this.grossSalary);
+        this.inssForm.markAsPristine();
     }
 };
 CalcInssPage.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"] },
+    { type: _ionic_native_pdf_generator_ngx__WEBPACK_IMPORTED_MODULE_4__["PDFGenerator"] }
 ];
 CalcInssPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
