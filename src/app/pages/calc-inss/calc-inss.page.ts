@@ -55,9 +55,9 @@ export class CalcInssPage  {
       this.aliquota = 'Teto';
     }
     this.inssForm.patchValue({
-      inssValue: this.calculatedInss?.toFixed(2).toString().replace('.', ',')
+      inssValue: this.calculatedInss?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
     });
-    this.calculatedInssPdf = this.calculatedInss.toFixed(2).toString().replace('.', ',');
+    this.calculatedInssPdf = this.calculatedInss?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
 
   async lowerSalaryToast() {
@@ -110,5 +110,4 @@ export class CalcInssPage  {
     this.calcInss();
     this.inssForm.markAsPristine();
   }
-
 }

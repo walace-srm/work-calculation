@@ -37,7 +37,7 @@
     <div class="align-items">
       <span *ngIf="baseCalculation > 1">{{'Base para cálculo: '}}</span>
       <ion-badge color="medium" *ngIf="baseCalculation > 1">
-        {{'R$ '}}{{ baseCalculation.toFixed(2).toString().replace('.', ',') }}
+        {{'R$ '}}{{ showBaseCalculation }}
       </ion-badge>
     </div>
     <div class="align-button">

@@ -21,6 +21,7 @@ export class CalcIrrfPage {
   public baseCalculation: number;
   public baseCalculationPdf: any;
   public valueDependent = 189.59;
+  public showBaseCalculation: string;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -80,12 +81,13 @@ export class CalcIrrfPage {
       this.calculatedIrrf = ((this.grossSalary - this.calculatedInss - dependentCalculation) * 27.5 / 100) - 869.36;
     }
     this.irrfForm.patchValue({
-      irrfValue: this.calculatedIrrf?.toFixed(2).toString().replace('.', ','),
+      irrfValue: this.calculatedIrrf?.toLocaleString('pt-BR', { maximumFractionDigits: 2 }),
       dependentValue: this.irrfForm.value.dependentValue
     });
     this.baseCalculation = this.grossSalary - this.calculatedInss;
-    this.calculatedIrrfPdf = this.calculatedIrrf.toFixed(2).toString().replace('.', ',');
-    this.baseCalculationPdf = this.baseCalculation.toString().replace('.', ',');
+    this.calculatedIrrfPdf = this.calculatedIrrf?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.baseCalculationPdf = this.baseCalculation.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.showBaseCalculation = this.baseCalculation.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
 
   async taxFreeToast() {
