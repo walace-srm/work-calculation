@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-label>{{ 'Calcular Dissídio' | uppercase}}</ion-label>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="dissidioForm" class="paddin-input">
+    <ion-item>
+      <ion-label position="stacked">Salário bruto</ion-label>
+      <ion-input
+          placeholder="R$ 0.00"
+          type="number"
+          (ngModelChange)="showClearButton($event)"
+          formControlName="grossSalary"
+      ></ion-input>
+    </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Aumento acordado( em % )</ion-label>
+          <ion-input
+          type="number"
+          formControlName="salaryIncrease"
+          ></ion-input>
+      </ion-item>
+    <div *ngIf="calculatedDissidio && dissidioForm.value.salaryIncrease" class="align-items">
+      <span class="mr-6">{{'O seu dissídio será de:'}}</span>
+      <ion-badge color="medium">
+        {{'R$ '}}{{ calculatedDissidio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}
+      </ion-badge>
+    </div>
+      <div *ngIf="calculatedDissidio && dissidioForm.value.salaryIncrease" class="align-items">
+          <span class="mr-6">{{'O seu salário passará para:'}}</span>
+          <ion-badge color="medium">
+              {{'R$ '}}{{ newSalary.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}
+          </ion-badge>
+      </div>
+    <div class="align-button">
+      <ion-button (click)="onSubmit(dissidioForm)">Calcular</ion-button>
+      <ion-button *ngIf="grossSalary" (click)="resetForm()" color="light">Limpar</ion-button>
+      <ion-button *ngIf="calculatedDissidio" (click)="generatorPdf()" color="light">Gerar PDF</ion-button>
+    </div>
+  </form>
+</ion-content>
+<!--Gerar PDF-->
+<!--Preciso melhorar isso-->
+<div hidden id="remove">
+    <div id="print">
+        <h1 style="display: flex; justify-content: center; margin-bottom: 40px;">CÁLCULO DISSÍDIO</h1><br>
+        <div style="width: 100%">
+            <div style=" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;">
+                <b style="font-size: 35px">Salário bruto:</b>
+                <span style="font-size: 35px;">{{ 'R$ ' + grossSalary }}</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; height: 50px;">
+                <b style="font-size: 35px;">Percentual do dissídio:</b>
+                <span style="font-size: 35px;">{{ salaryIncrease + '%' }}</span>
+            </div>
+
+            <div style="display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;">
+                <b style="font-size: 35px;">Valor do dissídio:</b>
+                <span style="font-size: 35px;">{{ 'R$ ' + calculatedDissidioPdf }}</span>
+            </div>
+
+            <div style=" display: flex; justify-content: space-between; height: 50px;">
+                <b style="font-size: 35px;">Novo salário:</b>
+                <span style="font-size: 35px;">{{ 'R$ ' + newSalaryPdf }}</span>
+            </div>
+        </div>
+    </div>
+</div>

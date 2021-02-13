@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
+  {
+    path: 'calc-dissidio',
+    loadChildren: () => import('./pages/calc-dissidio/calc-dissidio.module').then( m => m.CalcDissidioPageModule)
+  },
 ];
 
 @NgModule({

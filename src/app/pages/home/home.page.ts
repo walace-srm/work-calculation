@@ -21,4 +21,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/calc-irrf']);
   }
 
+  routerDissidio() {
+    this.router.navigate(['/calc-dissidio']);
+  }
+
 }

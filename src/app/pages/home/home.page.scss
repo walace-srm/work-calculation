@@ -25,8 +25,12 @@
 }
 
 .content-align {
-  display: flex;
-  justify-content: space-between;
   position: relative;
   top: 30px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }

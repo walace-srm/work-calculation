@@ -1,0 +1,67 @@
+::ng-deep {
+  ion-content {
+    --background: #eceeee;
+  }
+
+  ion-button {
+    font-family: NunitoSans;
+    --background: #0c9abe;
+    --border-radius: 15px;
+  }
+
+  ion-back-button {
+    --color: #fff;
+  }
+
+  ion-item {
+    margin-bottom: 18px;
+  }
+
+  ion-toolbar {
+    --background: #0c9abe;
+  }
+
+  ion-label {
+    position: relative;
+    top: -2px;
+  }
+
+  ion-title {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-right: 0;
+  }
+}
+
+.margin-icon {
+  margin-right: 7px;
+}
+
+.align-button {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 50px;
+}
+
+.paddin-input {
+  position: relative;
+  top: 90px;
+}
+
+.text-align {
+  padding-top: 12px;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.align-items {
+  display: flex;
+  padding: 12px;
+}
+
+.mr-6 {
+  margin-right: 6px;
+}
