@@ -31,32 +31,71 @@
 
     <ion-item>
       <ion-label position="stacked">Número de meses trabalhados:</ion-label>
-      <ion-input placeholder="0" type="number" formControlName="monthsWorked">
+      <ion-input placeholder="mínimo 1 máximo 12" type="number" formControlName="monthsWorked">
       </ion-input>
     </ion-item>
 
     <div *ngIf="baseCalculation && parcelPrimary > 0 " class="align-items">
       <span>{{'Primeira parcela: '}}</span>
       <ion-badge color="medium">
-        {{'R$ '}}{{ parcelPrimary }}
+        {{'R$ '}}{{ parcelPrimaryFormatted }}
       </ion-badge>
     </div>
     <div *ngIf="baseCalculation && parcelSecondary > 0" class="align-items">
       <span>{{'Segunda parcela: '}}</span>
       <ion-badge color="medium">
-        {{'R$ '}}{{ parcelSecondary }}
+        {{'R$ '}}{{ parcelSecondaryFormatted }}
       </ion-badge>
     </div>
     <div *ngIf="baseCalculation && total > 0" class="align-items">
       <span>{{'Valor integral: '}}</span>
       <ion-badge color="medium">
-        {{'R$ '}}{{ total }}
+        {{'R$ '}}{{ totalFormatted }}
       </ion-badge>
     </div>
     <div class="align-button">
       <ion-button (click)="onSubmit(decimoTerceiroForm)">Calcular</ion-button>
       <ion-button *ngIf="grossSalary" (click)="resetForm()" color="light">Limpar</ion-button>
-      <ion-button *ngIf="calculatedIrrf" (click)="generatorPdf()" color="light">Gerar PDF</ion-button>
+      <ion-button *ngIf="total" (click)="generatorPdf()" color="light">Gerar PDF</ion-button>
     </div>
   </form>
 </ion-content>
+
+<!--Gerar PDF-->
+<!--Preciso melhorar isso-->
+<div hidden id="remove">
+  <div id="print">
+    <h1 style="display: flex; justify-content: center; margin-bottom: 40px;">CÁLCULO IRRF</h1><br>
+    <div style="width: 100%">
+      <div style=" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;">
+        <b style="font-size: 35px">Salário bruto:</b>
+        <span style="font-size: 35px;">{{ 'R$ ' + realGrossSalaryFormatted }}</span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; height: 50px;">
+        <b style="font-size: 35px;">Número de dependentes:</b>
+        <span style="font-size: 35px;">{{ dependentQuantity }}</span>
+      </div>
+
+      <div style=" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;">
+        <b style="font-size: 35px;">Salário proporcional:</b>
+        <span style="font-size: 35px;">{{ 'R$ ' + proportionalSalaryFormatted }}</span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; height: 50px;">
+        <b style="font-size: 35px;">Primeira parcela:</b>
+        <span style="font-size: 35px;">{{ 'R$ ' + parcelPrimaryFormatted }}</span>
+      </div>
+
+      <div style="display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;">
+        <b style="font-size: 35px;">Segunda parcela:</b>
+        <span style="font-size: 35px;">{{ 'R$ ' + parcelSecondaryFormatted }}</span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; height: 50px;">
+        <b style="font-size: 35px;">Valor integral:</b>
+        <span style="font-size: 35px;">{{ 'R$ ' + totalFormatted }}</span>
+      </div>
+    </div>
+  </div>
+</div>

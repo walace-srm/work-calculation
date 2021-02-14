@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PDFGenerator} from '@ionic-native/pdf-generator/ngx';
 import {ToastController} from '@ionic/angular';
 
@@ -23,27 +23,33 @@ export class CalcDecimoTerceiroPage {
   public showBaseCalculation: string;
   public monthsWorked: number;
   public parcelPrimary: number;
+  public parcelPrimaryFormatted: string;
   public parcelSecondary: number;
+  public parcelSecondaryFormatted: string;
   public total: number;
+  public totalFormatted: string;
+  public proportionalSalary: number;
+  public proportionalSalaryFormatted: string;
+  public dependentQuantity: number;
+  public realGrossSalary: number;
+  public realGrossSalaryFormatted: string;
 
   constructor(
       private formBuilder: FormBuilder,
       private pdfGenerator: PDFGenerator,
       private toastController: ToastController) {
     this.decimoTerceiroForm = this.formBuilder.group({
-      grossSalary: [''],
+      grossSalary: ['', Validators.required],
       dependentValue: [0],
-      monthsWorked: [''],
+      monthsWorked: ['', Validators.required],
     });
   }
 
   calcInss() {
-    if (this.grossSalary === 1100) {
-      /**
-       * Será implementado futuramente
-       **/
-      // this.inssValue = fiscalRules.inssValue;
+    this.grossSalary = this.grossSalary / 12 * this.decimoTerceiroForm.value.monthsWorked;
+    if (this.grossSalary < 1100) {
       this.inssValue = 82.50;
+      this.calculatedInss = (this.grossSalary * 7.5 / 100);
     } else if ((this.grossSalary > 1100) && (this.grossSalary < 2203.49)) {
       this.inssValue = 99.31;
       this.calculatedInss = (this.grossSalary * 9 / 100) - 16.50;
@@ -62,9 +68,8 @@ export class CalcDecimoTerceiroPage {
   calcIrrf() {
     const dependentCalculation = this.decimoTerceiroForm.value.dependentValue * this.valueDependent;
     const baseSalary = this.grossSalary - this.calculatedInss;
-    if ((baseSalary < 1903.98) || (this.grossSalary < 1903.98)) {
+    if ((baseSalary < 2075)) {
       this.calculatedIrrf = 0;
-      //this.taxFreeToast();
     }
     else if ((baseSalary > 1903.98) && (baseSalary < 2826.66)) {
       this.calculatedIrrf = (this.grossSalary - this.calculatedInss - dependentCalculation) * 7.5 / 100 - 142.80;
@@ -89,11 +94,11 @@ export class CalcDecimoTerceiroPage {
     this.grossSalary = e;
     if (!e) {
       this.decimoTerceiroForm.patchValue({
-        monthsWorked: this.decimoTerceiroForm.value.monthsWorked = 0,
+        monthsWorked: this.decimoTerceiroForm.value.monthsWorked = undefined,
       });
-      this.parcelPrimary = 0;
-      this.parcelSecondary = 0;
-      this.total = 0;
+      this.parcelPrimary = undefined;
+      this.parcelSecondary = undefined;
+      this.total = undefined;
     }
   }
 
@@ -105,9 +110,18 @@ export class CalcDecimoTerceiroPage {
     this.grossSalary = undefined;
   }
 
+  async grossSalaryToast() {
+    const toast = await this.toastController.create({
+      message: 'Informe o salário bruto!',
+      duration: 3000,
+      color: 'medium'
+    });
+    toast.present();
+  }
+
   async monthsWorkedToast() {
     const toast = await this.toastController.create({
-      message: 'Isento de imposto de renda!',
+      message: 'Informe a quantidade de meses trabalhados!',
       duration: 3000,
       color: 'medium'
     });
@@ -123,25 +137,31 @@ export class CalcDecimoTerceiroPage {
   }
 
   onSubmit({value, valid}: {value: any; valid: boolean}) {
-    console.log(value);
-    if (!valid) {
-      //return this.reportSalaryToast();
+    if (!value.grossSalary) {
+      return this.grossSalaryToast();
     }
-    if (value.monthsWorked < 1) {
-     this.monthsWorkedToast();
+    if (!value.monthsWorked) {
+      return this.monthsWorkedToast();
     }
     this.grossSalary = value.grossSalary;
     this.calcInss();
     this.calcIrrf();
     this.monthsWorked = value.monthsWorked;
-    this.parcelPrimary = (this.grossSalary / 12 * this.monthsWorked) / 2;
-    this.parcelSecondary = (this.grossSalary / 12 * this.monthsWorked) / 2 - this.calculatedInss - this.calculatedIrrf;
-    this.total = (this.grossSalary / 12 * this.monthsWorked) - this.calculatedInss - this.calculatedIrrf;
-    console.log(this.parcelPrimary);
-    console.log(this.parcelSecondary);
-    console.log(this.calculatedInss);
-    console.log(this.calculatedIrrf);
-    console.log(this.monthsWorked);
+    this.parcelPrimary = (this.grossSalary) / 2;
+    this.parcelPrimaryFormatted = this.parcelPrimary
+        .toLocaleString('pt-BR', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+    this.parcelSecondary = this.parcelPrimary - this.calculatedInss - this.calculatedIrrf;
+    this.parcelSecondaryFormatted = this.parcelSecondary
+        .toLocaleString('pt-BR', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+    this.total = (this.parcelPrimary + this.parcelSecondary);
+    this.totalFormatted = this.total.toLocaleString('pt-BR', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+    this.realGrossSalary = value.grossSalary;
+    this.realGrossSalaryFormatted = this.realGrossSalary
+        .toLocaleString('pt-BR', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+    this.dependentQuantity = value.dependentValue;
+    this.proportionalSalary = value.grossSalary / 12 * value.monthsWorked;
+    this.proportionalSalaryFormatted = this.proportionalSalary
+        .toLocaleString('pt-BR', {maximumFractionDigits: 2, minimumFractionDigits: 2});
   }
 
 

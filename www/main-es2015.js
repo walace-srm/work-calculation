@@ -316,6 +316,14 @@ const routes = [
         path: 'about',
         loadChildren: () => __webpack_require__.e(/*! import() | pages-about-about-module */ "pages-about-about-module").then(__webpack_require__.bind(null, /*! ./pages/about/about.module */ "./src/app/pages/about/about.module.ts")).then(m => m.AboutPageModule)
     },
+    {
+        path: 'calc-dissidio',
+        loadChildren: () => Promise.all(/*! import() | pages-calc-dissidio-calc-dissidio-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-calc-dissidio-calc-dissidio-module")]).then(__webpack_require__.bind(null, /*! ./pages/calc-dissidio/calc-dissidio.module */ "./src/app/pages/calc-dissidio/calc-dissidio.module.ts")).then(m => m.CalcDissidioPageModule)
+    },
+    {
+        path: 'calc-decimo-terceiro',
+        loadChildren: () => Promise.all(/*! import() | pages-calc-decimo-terceiro-calc-decimo-terceiro-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-calc-decimo-terceiro-calc-decimo-terceiro-module")]).then(__webpack_require__.bind(null, /*! ./pages/calc-decimo-terceiro/calc-decimo-terceiro.module */ "./src/app/pages/calc-decimo-terceiro/calc-decimo-terceiro.module.ts")).then(m => m.CalcDecimoTerceiroPageModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

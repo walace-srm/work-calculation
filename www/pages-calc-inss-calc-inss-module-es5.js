@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-label>{{ 'Calcular Inss' | uppercase}}</ion-label>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form [formGroup]=\"inssForm\" class=\"paddin-input\">\n    <div id=\"\">\n      <ion-item>\n        <ion-label position=\"stacked\">Salário bruto</ion-label>\n        <ion-input\n          placeholder=\"R$ 0.00\"\n          type=\"number\"\n          (ngModelChange)=\"showClearButton($event)\"\n          formControlName=\"grossSalary\"\n        ></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label *ngIf=\"inssForm.value.inssValue\">R$</ion-label>\n        <ion-input\n          disabled\n          placeholder=\"...\"\n          formControlName=\"inssValue\"\n        ></ion-input>\n      </ion-item>\n      <div class=\"align-items\">\n        <span *ngIf=\"aliquota && inssForm.value.inssValue\" class=\"mr-6\">{{'Alíquota:'}}</span>\n        <ion-badge color=\"medium\" *ngIf=\"aliquota && inssForm.value.inssValue\">\n          {{ aliquota }}{{'%'}}\n        </ion-badge>\n      </div>\n    </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(inssForm)\">Calcular</ion-button>\n      <ion-button *ngIf=\"grossSalary\" (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n      <ion-button *ngIf=\"calculatedInss\" (click)=\"generatorPdf()\" color=\"light\">Gerar PDF</ion-button>\n    </div>\n  </form>\n</ion-content>\n<!--Gerar PDF-->\n<!--Preciso melhorar isso-->\n<div hidden id=\"remove\">\n  <div id=\"print\">\n    <h1 style=\"display: flex; justify-content: center; margin-bottom: 40px;\">CÁLCULO INSS</h1><br>\n        <div style=\"width: 100%\">\n          <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px\">Salário bruto:</b>\n            <span style=\"font-size: 35px;\">{{ 'R$ ' + grossSalary }}</span>\n          </div>\n\n          <div style=\"display: flex; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px;\">Desconto:</b>\n            <span style=\"font-size: 35px;\">{{ 'R$ ' + calculatedInssPdf }}</span>\n          </div>\n\n          <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px;\">Alíquota:</b>\n            <span style=\"font-size: 35px;\">{{ aliquota + '%' }}</span>\n          </div>\n        </div>\n  </div>\n</div>\n";
+      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-label>{{ 'Calcular Inss' | uppercase}}</ion-label>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <form [formGroup]=\"inssForm\" class=\"paddin-input\">\n      <ion-item>\n        <ion-label position=\"stacked\">Salário bruto</ion-label>\n        <ion-input\n          placeholder=\"R$ 0.00\"\n          type=\"number\"\n          (ngModelChange)=\"showClearButton($event)\"\n          formControlName=\"grossSalary\"\n        ></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label *ngIf=\"inssForm.value.inssValue\">R$</ion-label>\n        <ion-input\n          disabled\n          placeholder=\"...\"\n          formControlName=\"inssValue\"\n        ></ion-input>\n      </ion-item>\n      <div class=\"align-items\">\n        <span *ngIf=\"aliquota && inssForm.value.inssValue\" class=\"mr-6\">{{'Alíquota:'}}</span>\n        <ion-badge color=\"medium\" *ngIf=\"aliquota && inssForm.value.inssValue\">\n          {{ aliquota }}{{'%'}}\n        </ion-badge>\n      </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(inssForm)\">Calcular</ion-button>\n      <ion-button *ngIf=\"grossSalary\" (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n      <ion-button *ngIf=\"calculatedInss\" (click)=\"generatorPdf()\" color=\"light\">Gerar PDF</ion-button>\n    </div>\n  </form>\n</ion-content>\n<!--Gerar PDF-->\n<!--Preciso melhorar isso-->\n<div hidden id=\"remove\">\n  <div id=\"print\">\n    <h1 style=\"display: flex; justify-content: center; margin-bottom: 40px;\">CÁLCULO INSS</h1><br>\n        <div style=\"width: 100%\">\n          <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px\">Salário bruto:</b>\n            <span style=\"font-size: 35px;\">{{ 'R$ ' + grossSalary }}</span>\n          </div>\n\n          <div style=\"display: flex; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px;\">Desconto:</b>\n            <span style=\"font-size: 35px;\">{{ 'R$ ' + calculatedInssPdf }}</span>\n          </div>\n\n          <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n            <b style=\"font-size: 35px;\">Alíquota:</b>\n            <span style=\"font-size: 35px;\">{{ aliquota + '%' }}</span>\n          </div>\n        </div>\n  </div>\n</div>\n";
       /***/
     },
 
@@ -245,7 +245,7 @@
         _createClass(CalcInssPage, [{
           key: "calcInss",
           value: function calcInss() {
-            var _a;
+            var _a, _b;
 
             if (this.grossSalary < 1100) {
               this.lowerSalaryToast();
@@ -275,9 +275,15 @@
             }
 
             this.inssForm.patchValue({
-              inssValue: (_a = this.calculatedInss) === null || _a === void 0 ? void 0 : _a.toFixed(2).toString().replace('.', ',')
+              inssValue: (_a = this.calculatedInss) === null || _a === void 0 ? void 0 : _a.toLocaleString('pt-BR', {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2
+              })
             });
-            this.calculatedInssPdf = this.calculatedInss.toFixed(2).toString().replace('.', ',');
+            this.calculatedInssPdf = (_b = this.calculatedInss) === null || _b === void 0 ? void 0 : _b.toLocaleString('pt-BR', {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2
+            });
           }
         }, {
           key: "lowerSalaryToast",

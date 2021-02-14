@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-label>{{ 'Cálculos Trabalhistas' | uppercase }}</ion-label>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <div class=\"content-align\">\n    <ion-card (click)=\"routerInss()\">\n      <ion-card-header>\n        <ion-img [src]=\"'/assets/icon/inss.png'\"></ion-img>\n        <ion-card-subtitle>Cálculo do INSS Descontado</ion-card-subtitle>\n      </ion-card-header>\n    </ion-card>\n\n    <ion-card (click)=\"routerIrrf()\">\n      <ion-card-header>\n        <ion-img [src]=\"'/assets/icon/irrf.png'\"></ion-img>\n        <ion-card-subtitle>Cálculo do IR Retido na Fonte</ion-card-subtitle>\n      </ion-card-header>\n    </ion-card>\n  </div>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-label>{{ 'Cálculos Trabalhistas' | uppercase }}</ion-label>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <div class=\"content-align\" style=\"justify-content: space-between\">\n    <div class=\"row\">\n      <ion-card (click)=\"routerInss()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/inss.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo do INSS Descontado</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n\n      <ion-card (click)=\"routerIrrf()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/irrf.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo do IR Retido na Fonte</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </div>\n\n    <div class=\"row\" style=\"justify-content: space-between\">\n      <ion-card (click)=\"routerDissidio()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/dissidio.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo do Dissídio</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n\n      <ion-card (click)=\"routerDecimoTerceiro()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/decimo-terceiro.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo 13º salário</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </div>\n    </div>\n</ion-content>\n";
       /***/
     },
 
@@ -175,7 +175,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "::ng-deep ion-content {\n  --background: #eceeee;\n}\n::ng-deep ion-menu {\n  --width: 50%;\n}\n::ng-deep ion-toolbar {\n  --background: #0c9abe;\n}\n::ng-deep ion-title {\n  color: #fff;\n  font-size: 1.1em;\n  font-weight: bold;\n  padding-right: 0;\n}\n::ng-deep ion-menu-button {\n  --color: #fff;\n}\n.content-align {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  top: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLHFCQUFBO0FBQUo7QUFHRTtFQUNFLFlBQUE7QUFESjtBQUlFO0VBQ0UscUJBQUE7QUFGSjtBQUtFO0VBQ0UsV0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQUhKO0FBTUU7RUFDRSxhQUFBO0FBSko7QUFTQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtBQU5GIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjo6bmctZGVlcCB7XG4gIGlvbi1jb250ZW50IHtcbiAgICAtLWJhY2tncm91bmQ6ICNlY2VlZWU7XG4gIH1cblxuICBpb24tbWVudSB7XG4gICAgLS13aWR0aDogNTAlO1xuICB9XG5cbiAgaW9uLXRvb2xiYXIge1xuICAgIC0tYmFja2dyb3VuZDogIzBjOWFiZTtcbiAgfVxuXG4gIGlvbi10aXRsZSB7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgZm9udC1zaXplOiAxLjFlbTtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbiAgICBwYWRkaW5nLXJpZ2h0OiAwO1xuICB9XG5cbiAgaW9uLW1lbnUtYnV0dG9uIHtcbiAgICAtLWNvbG9yOiAjZmZmO1xuICB9XG5cbn1cblxuLmNvbnRlbnQtYWxpZ24ge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAzMHB4O1xufVxuIl19 */";
+      __webpack_exports__["default"] = "::ng-deep ion-content {\n  --background: #eceeee;\n}\n::ng-deep ion-menu {\n  --width: 50%;\n}\n::ng-deep ion-toolbar {\n  --background: #0c9abe;\n}\n::ng-deep ion-title {\n  color: #fff;\n  font-size: 1.1em;\n  font-weight: bold;\n  padding-right: 0;\n}\n::ng-deep ion-menu-button {\n  --color: #fff;\n}\n.content-align {\n  position: relative;\n  top: 30px;\n}\n.row {\n  display: flex;\n  width: 100%;\n  align-items: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLHFCQUFBO0FBQUo7QUFHRTtFQUNFLFlBQUE7QUFESjtBQUlFO0VBQ0UscUJBQUE7QUFGSjtBQUtFO0VBQ0UsV0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQUhKO0FBTUU7RUFDRSxhQUFBO0FBSko7QUFTQTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtBQU5GO0FBU0E7RUFDRSxhQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0FBTkYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIHtcbiAgaW9uLWNvbnRlbnQge1xuICAgIC0tYmFja2dyb3VuZDogI2VjZWVlZTtcbiAgfVxuXG4gIGlvbi1tZW51IHtcbiAgICAtLXdpZHRoOiA1MCU7XG4gIH1cblxuICBpb24tdG9vbGJhciB7XG4gICAgLS1iYWNrZ3JvdW5kOiAjMGM5YWJlO1xuICB9XG5cbiAgaW9uLXRpdGxlIHtcbiAgICBjb2xvcjogI2ZmZjtcbiAgICBmb250LXNpemU6IDEuMWVtO1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgIHBhZGRpbmctcmlnaHQ6IDA7XG4gIH1cblxuICBpb24tbWVudS1idXR0b24ge1xuICAgIC0tY29sb3I6ICNmZmY7XG4gIH1cblxufVxuXG4uY29udGVudC1hbGlnbiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAzMHB4O1xufVxuXG4ucm93IHtcbiAgZGlzcGxheTogZmxleDtcbiAgd2lkdGg6IDEwMCU7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4iXX0= */";
       /***/
     },
 
@@ -236,6 +236,16 @@
           key: "routerIrrf",
           value: function routerIrrf() {
             this.router.navigate(['/calc-irrf']);
+          }
+        }, {
+          key: "routerDissidio",
+          value: function routerDissidio() {
+            this.router.navigate(['/calc-dissidio']);
+          }
+        }, {
+          key: "routerDecimoTerceiro",
+          value: function routerDecimoTerceiro() {
+            this.router.navigate(['/calc-decimo-terceiro']);
           }
         }]);
 
