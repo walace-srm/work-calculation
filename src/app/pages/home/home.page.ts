@@ -25,4 +25,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/calc-dissidio']);
   }
 
+  routerDecimoTerceiro() {
+    this.router.navigate(['/calc-decimo-terceiro']);
+  }
+
 }

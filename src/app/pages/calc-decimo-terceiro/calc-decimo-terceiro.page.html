@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        <ion-label>{{ 'Calcular Décimo Terceiro' | uppercase}}</ion-label>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="decimoTerceiroForm" class="paddin-input">
+    <ion-item>
+      <ion-label position="stacked">Salário bruto:</ion-label>
+      <ion-input
+              placeholder="R$ 0.00"
+              type="number"
+              (ngModelChange)="showClearButton($event)"
+              formControlName="grossSalary"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Número de dependentes:</ion-label>
+      <ion-input placeholder="0" type="number" formControlName="dependentValue">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Número de meses trabalhados:</ion-label>
+      <ion-input placeholder="0" type="number" formControlName="monthsWorked">
+      </ion-input>
+    </ion-item>
+
+    <div *ngIf="baseCalculation && parcelPrimary > 0 " class="align-items">
+      <span>{{'Primeira parcela: '}}</span>
+      <ion-badge color="medium">
+        {{'R$ '}}{{ parcelPrimary }}
+      </ion-badge>
+    </div>
+    <div *ngIf="baseCalculation && parcelSecondary > 0" class="align-items">
+      <span>{{'Segunda parcela: '}}</span>
+      <ion-badge color="medium">
+        {{'R$ '}}{{ parcelSecondary }}
+      </ion-badge>
+    </div>
+    <div *ngIf="baseCalculation && total > 0" class="align-items">
+      <span>{{'Valor integral: '}}</span>
+      <ion-badge color="medium">
+        {{'R$ '}}{{ total }}
+      </ion-badge>
+    </div>
+    <div class="align-button">
+      <ion-button (click)="onSubmit(decimoTerceiroForm)">Calcular</ion-button>
+      <ion-button *ngIf="grossSalary" (click)="resetForm()" color="light">Limpar</ion-button>
+      <ion-button *ngIf="calculatedIrrf" (click)="generatorPdf()" color="light">Gerar PDF</ion-button>
+    </div>
+  </form>
+</ion-content>

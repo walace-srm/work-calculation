@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'calc-dissidio',
     loadChildren: () => import('./pages/calc-dissidio/calc-dissidio.module').then( m => m.CalcDissidioPageModule)
+  },  {
+    path: 'calc-decimo-terceiro',
+    loadChildren: () => import('./pages/calc-decimo-terceiro/calc-decimo-terceiro.module').then( m => m.CalcDecimoTerceiroPageModule)
   },
+
 ];
 
 @NgModule({
