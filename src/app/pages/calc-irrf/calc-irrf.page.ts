@@ -13,6 +13,7 @@ import {PDFGenerator} from '@ionic-native/pdf-generator/ngx';
 export class CalcIrrfPage {
   public irrfForm: FormGroup;
   public grossSalary: number;
+  public grossSalaryFormatted: string;
   public inssValue: number;
   public calculatedInss: number;
   public calculatedIrrf: number;
@@ -22,6 +23,7 @@ export class CalcIrrfPage {
   public baseCalculationPdf: any;
   public valueDependent = 189.59;
   public showBaseCalculation: string;
+  public dependentQuantity: number;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -32,7 +34,7 @@ export class CalcIrrfPage {
       grossSalary: ['', Validators.required],
       inssValue: [''],
       irrfValue: [''],
-      dependentValue: ['']
+      dependentValue: [0]
     });
   }
 
@@ -85,9 +87,15 @@ export class CalcIrrfPage {
       dependentValue: this.irrfForm.value.dependentValue
     });
     this.baseCalculation = this.grossSalary - this.calculatedInss;
-    this.calculatedIrrfPdf = this.calculatedIrrf?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    this.baseCalculationPdf = this.baseCalculation.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-    this.showBaseCalculation = this.baseCalculation.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.calculatedIrrfPdf = this.calculatedIrrf
+        ?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.baseCalculationPdf = this.baseCalculation
+        .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.showBaseCalculation = this.baseCalculation
+        .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.grossSalaryFormatted = this.grossSalary
+        .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.dependentQuantity = this.irrfForm.value.dependentValue;
   }
 
   async taxFreeToast() {
@@ -120,7 +128,8 @@ export class CalcIrrfPage {
     this.grossSalary = e;
     if (!e) {
       this.irrfForm.patchValue({
-        irrfValue: this.irrfForm.value.irrfValue = undefined
+        irrfValue: this.irrfForm.value.irrfValue = undefined,
+        dependentValue: this.irrfForm.value.dependentValue = undefined
       });
       this.calculatedIrrf = undefined;
       this.baseCalculation = undefined;

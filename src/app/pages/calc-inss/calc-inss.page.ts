@@ -12,6 +12,7 @@ export class CalcInssPage  {
 
   public inssForm: FormGroup;
   public grossSalary: number;
+  public grossSalaryFormatted: string;
   public inssValue: number;
   public calculatedInss: number;
   public calculatedInssPdf: any;
@@ -57,7 +58,10 @@ export class CalcInssPage  {
     this.inssForm.patchValue({
       inssValue: this.calculatedInss?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
     });
-    this.calculatedInssPdf = this.calculatedInss?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.calculatedInssPdf = this.calculatedInss
+        ?.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    this.grossSalaryFormatted = this.grossSalary
+        .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
 
   async lowerSalaryToast() {

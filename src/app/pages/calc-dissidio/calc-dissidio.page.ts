@@ -11,6 +11,7 @@ import {ToastController} from '@ionic/angular';
 export class CalcDissidioPage  {
   public dissidioForm: FormGroup;
   public grossSalary: number;
+  public grossSalaryFormatted: string;
   public salaryIncrease: number;
   public calculatedDissidio: number;
   public calculatedDissidioPdf: any;
@@ -35,6 +36,8 @@ export class CalcDissidioPage  {
     this.newSalary = (this.grossSalary + this.calculatedDissidio);
     this.calculatedDissidioPdf = this.calculatedDissidio;
     this.newSalaryPdf = this.newSalary;
+    this.grossSalaryFormatted = this.grossSalary
+        .toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
   showClearButton(e) {

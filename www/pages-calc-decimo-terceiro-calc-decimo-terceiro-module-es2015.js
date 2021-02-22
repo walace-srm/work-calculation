@@ -230,6 +230,24 @@ let CalcDecimoTerceiroPage = class CalcDecimoTerceiroPage {
         const a = document.getElementById('print');
         this.pdfGenerator.fromData(a.innerHTML, { type: 'share' });
     }
+    calcDecimoTerceiro() {
+        this.monthsWorked = this.decimoTerceiroForm.value.monthsWorked;
+        this.parcelPrimary = (this.grossSalary) / 2;
+        this.parcelPrimaryFormatted = this.parcelPrimary
+            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+        this.parcelSecondary = this.parcelPrimary - this.calculatedInss - this.calculatedIrrf;
+        this.parcelSecondaryFormatted = this.parcelSecondary
+            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+        this.total = (this.parcelPrimary + this.parcelSecondary);
+        this.totalFormatted = this.total.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+        this.realGrossSalary = this.decimoTerceiroForm.value.grossSalary;
+        this.realGrossSalaryFormatted = this.realGrossSalary
+            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+        this.dependentQuantity = this.decimoTerceiroForm.value.dependentValue;
+        this.proportionalSalary = this.decimoTerceiroForm.value.grossSalary / 12 * this.decimoTerceiroForm.value.monthsWorked;
+        this.proportionalSalaryFormatted = this.proportionalSalary
+            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    }
     onSubmit({ value, valid }) {
         if (!value.grossSalary) {
             return this.grossSalaryToast();
@@ -240,22 +258,7 @@ let CalcDecimoTerceiroPage = class CalcDecimoTerceiroPage {
         this.grossSalary = value.grossSalary;
         this.calcInss();
         this.calcIrrf();
-        this.monthsWorked = value.monthsWorked;
-        this.parcelPrimary = (this.grossSalary) / 2;
-        this.parcelPrimaryFormatted = this.parcelPrimary
-            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-        this.parcelSecondary = this.parcelPrimary - this.calculatedInss - this.calculatedIrrf;
-        this.parcelSecondaryFormatted = this.parcelSecondary
-            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-        this.total = (this.parcelPrimary + this.parcelSecondary);
-        this.totalFormatted = this.total.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-        this.realGrossSalary = value.grossSalary;
-        this.realGrossSalaryFormatted = this.realGrossSalary
-            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-        this.dependentQuantity = value.dependentValue;
-        this.proportionalSalary = value.grossSalary / 12 * value.monthsWorked;
-        this.proportionalSalaryFormatted = this.proportionalSalary
-            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+        this.calcDecimoTerceiro();
     }
 };
 CalcDecimoTerceiroPage.ctorParameters = () => [

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <div class=\"title\">\n        <ion-label>{{ 'Calcular IRRF' | uppercase}}</ion-label>\n      </div>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <form [formGroup]=\"irrfForm\" class=\"paddin-input\">\n    <ion-item>\n      <ion-label position=\"stacked\">Salário bruto:</ion-label>\n      <ion-input\n        placeholder=\"R$ 0.00\"\n        type=\"number\"\n        (ngModelChange)=\"showClearButton($event)\"\n        formControlName=\"grossSalary\"\n      ></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\">Número de dependentes:</ion-label>\n      <ion-input placeholder=\"0\" type=\"number\" formControlName=\"dependentValue\">\n      </ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label *ngIf=\"irrfForm.value.irrfValue\">R$</ion-label>\n      <ion-input disabled placeholder=\"...\" formControlName=\"irrfValue\">\n      </ion-input>\n    </ion-item>\n    <div class=\"align-items\">\n      <span *ngIf=\"baseCalculation > 1\">{{'Base para cálculo: '}}</span>\n      <ion-badge color=\"medium\" *ngIf=\"baseCalculation > 1\">\n        {{'R$ '}}{{ showBaseCalculation }}\n      </ion-badge>\n    </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(irrfForm)\">Calcular</ion-button>\n      <ion-button *ngIf=\"grossSalary\" (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n      <ion-button *ngIf=\"calculatedIrrf\" (click)=\"generatorPdf()\" color=\"light\">Gerar PDF</ion-button>\n    </div>\n  </form>\n</ion-content>\n<!--Gerar PDF-->\n<!--Preciso melhorar isso-->\n<div hidden id=\"remove\">\n  <div id=\"print\">\n    <h1 style=\"display: flex; justify-content: center; margin-bottom: 40px;\">CÁLCULO IRRF</h1><br>\n    <div style=\"width: 100%\">\n      <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px\">Salário bruto:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + grossSalary }}</span>\n      </div>\n\n      <div style=\"display: flex; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px;\">Desconto:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + calculatedIrrfPdf }}</span>\n      </div>\n\n      <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px;\">Base para cálculo:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + baseCalculationPdf }}</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n";
+      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <div class=\"title\">\n        <ion-label>{{ 'Calcular IRRF' | uppercase}}</ion-label>\n      </div>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <form [formGroup]=\"irrfForm\" class=\"paddin-input\">\n    <ion-item>\n      <ion-label position=\"stacked\">Salário bruto:</ion-label>\n      <ion-input\n        placeholder=\"R$ 0.00\"\n        type=\"number\"\n        (ngModelChange)=\"showClearButton($event)\"\n        formControlName=\"grossSalary\"\n      ></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"stacked\">Número de dependentes:</ion-label>\n      <ion-input placeholder=\"0\" type=\"number\" formControlName=\"dependentValue\">\n      </ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label *ngIf=\"irrfForm.value.irrfValue\">R$</ion-label>\n      <ion-input disabled placeholder=\"...\" formControlName=\"irrfValue\">\n      </ion-input>\n    </ion-item>\n    <div class=\"align-items\">\n      <span *ngIf=\"baseCalculation > 1\">{{'Base para cálculo: '}}</span>\n      <ion-badge color=\"medium\" *ngIf=\"baseCalculation > 1\">\n        {{'R$ '}}{{ showBaseCalculation }}\n      </ion-badge>\n    </div>\n    <div class=\"align-button\">\n      <ion-button (click)=\"onSubmit(irrfForm)\">Calcular</ion-button>\n      <ion-button *ngIf=\"grossSalary\" (click)=\"resetForm()\" color=\"light\">Limpar</ion-button>\n      <ion-button *ngIf=\"calculatedIrrf\" (click)=\"generatorPdf()\" color=\"light\">Gerar PDF</ion-button>\n    </div>\n  </form>\n</ion-content>\n<!--Gerar PDF-->\n<!--Preciso melhorar isso-->\n<div hidden id=\"remove\">\n  <div id=\"print\">\n    <h1 style=\"display: flex; justify-content: center; margin-bottom: 40px;\">CÁLCULO IRRF</h1><br>\n    <div style=\"width: 100%\">\n      <div style=\" display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px\">Salário bruto:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + grossSalaryFormatted }}</span>\n      </div>\n\n      <div style=\"display: flex; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px;\">Número de dependentes:</b>\n        <span style=\"font-size: 35px;\">{{ dependentQuantity }}</span>\n      </div>\n\n      <div style=\"display: flex; background-color: #dddddd; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px;\">Desconto:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + calculatedIrrfPdf }}</span>\n      </div>\n\n      <div style=\" display: flex; justify-content: space-between; height: 50px;\">\n        <b style=\"font-size: 35px;\">Base para cálculo:</b>\n        <span style=\"font-size: 35px;\">{{ 'R$ ' + baseCalculationPdf }}</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n";
       /***/
     },
 
@@ -241,7 +241,7 @@
             grossSalary: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             inssValue: [''],
             irrfValue: [''],
-            dependentValue: ['']
+            dependentValue: [0]
           });
         }
 
@@ -312,6 +312,11 @@
               maximumFractionDigits: 2,
               minimumFractionDigits: 2
             });
+            this.grossSalaryFormatted = this.grossSalary.toLocaleString('pt-BR', {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2
+            });
+            this.dependentQuantity = this.irrfForm.value.dependentValue;
           }
         }, {
           key: "taxFreeToast",
@@ -385,7 +390,8 @@
 
             if (!e) {
               this.irrfForm.patchValue({
-                irrfValue: this.irrfForm.value.irrfValue = undefined
+                irrfValue: this.irrfForm.value.irrfValue = undefined,
+                dependentValue: this.irrfForm.value.dependentValue = undefined
               });
               this.calculatedIrrf = undefined;
               this.baseCalculation = undefined;
