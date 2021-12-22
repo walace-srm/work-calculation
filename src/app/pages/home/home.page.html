@@ -42,5 +42,21 @@
         </ion-card-header>
       </ion-card>
     </div>
+
+    <div class="row" style="justify-content: space-between">
+      <ion-card (click)="routerPericulosidade()">
+        <ion-card-header>
+          <ion-img [src]="'/assets/icon/periculosidade.jpg'"></ion-img>
+          <ion-card-subtitle>Adicional de periculosidade</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card (click)="routerDicas()">
+        <ion-card-header>
+          <ion-img [src]="'/assets/icon/dicas.jpg'"></ion-img>
+          <ion-card-subtitle>Tabela, dicas e cálculos</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
     </div>
+  </div>
 </ion-content>

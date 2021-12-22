@@ -1,0 +1,95 @@
+::ng-deep {
+  ion-content {
+    --background: #eceeee;
+  }
+
+  ion-title {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-right: 0;
+  }
+
+  ion-toolbar {
+    --background: #0c9abe;
+  }
+
+  ion-back-button {
+    --color: #fff;
+  }
+  ion-item {
+    margin-top: 16px;
+  }
+  .display {
+    display: initial;
+    padding: 7px;
+  }
+}
+li {
+  font-size: 15px;
+}
+
+.salary-item {
+  background: white;
+  padding: 19px;
+  margin-top: 17px;
+}
+
+.salary-item-final {
+  background: white;
+  padding: 19px;
+  margin-top: 17px;
+}
+
+.d-flex {
+  display: flex;
+  width: 100%;
+  padding-top: 9px;
+  text-align: center;
+}
+
+.d-flex-danger {
+  display: flex;
+  width: 100%;
+  padding-top: 9px;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+}
+
+.inss-left {
+  width: 75%;
+}
+
+.inss-right {
+  width: 25%;
+}
+
+.irrf-left {
+  width: 60%;
+}
+
+.irrf-center {
+  width: 20%;
+}
+
+.irff-right {
+  width: 20%;
+}
+
+.dangerousness {
+  width: 100%;
+}
+
+hr {
+  background: black;
+}
+
+.pl-12 {
+  padding-left: 12px;
+}

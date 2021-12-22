@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-label>{{ 'Cálculos Trabalhistas' | uppercase }}</ion-label>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <div class=\"content-align\" style=\"justify-content: space-between\">\n    <div class=\"row\">\n      <ion-card (click)=\"routerInss()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/inss.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo do INSS Descontado</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n\n      <ion-card (click)=\"routerIrrf()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/irrf.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo do IR Retido na Fonte</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </div>\n\n    <div class=\"row\" style=\"justify-content: space-between\">\n      <ion-card (click)=\"routerDissidio()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/dissidio.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo do Dissídio</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n\n      <ion-card (click)=\"routerDecimoTerceiro()\">\n        <ion-card-header>\n          <ion-img [src]=\"'/assets/icon/decimo-terceiro.png'\"></ion-img>\n          <ion-card-subtitle>Cálculo 13º salário</ion-card-subtitle>\n        </ion-card-header>\n      </ion-card>\n    </div>\n    </div>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <ion-label>{{ 'Cálculos Trabalhistas' | uppercase }}</ion-label>\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\">\r\n  <div class=\"content-align\" style=\"justify-content: space-between\">\r\n    <div class=\"row\">\r\n      <ion-card (click)=\"routerInss()\">\r\n        <ion-card-header>\r\n          <ion-img [src]=\"'/assets/icon/inss.png'\"></ion-img>\r\n          <ion-card-subtitle>Cálculo do INSS Descontado</ion-card-subtitle>\r\n        </ion-card-header>\r\n      </ion-card>\r\n\r\n      <ion-card (click)=\"routerIrrf()\">\r\n        <ion-card-header>\r\n          <ion-img [src]=\"'/assets/icon/irrf.png'\"></ion-img>\r\n          <ion-card-subtitle>Cálculo do IR Retido na Fonte</ion-card-subtitle>\r\n        </ion-card-header>\r\n      </ion-card>\r\n    </div>\r\n\r\n    <div class=\"row\" style=\"justify-content: space-between\">\r\n      <ion-card (click)=\"routerDissidio()\">\r\n        <ion-card-header>\r\n          <ion-img [src]=\"'/assets/icon/dissidio.png'\"></ion-img>\r\n          <ion-card-subtitle>Cálculo do Dissídio</ion-card-subtitle>\r\n        </ion-card-header>\r\n      </ion-card>\r\n\r\n      <ion-card (click)=\"routerDecimoTerceiro()\">\r\n        <ion-card-header>\r\n          <ion-img [src]=\"'/assets/icon/decimo-terceiro.png'\"></ion-img>\r\n          <ion-card-subtitle>Cálculo 13º salário</ion-card-subtitle>\r\n        </ion-card-header>\r\n      </ion-card>\r\n    </div>\r\n\r\n    <div class=\"row\" style=\"justify-content: space-between\">\r\n      <ion-card (click)=\"routerPericulosidade()\">\r\n        <ion-card-header>\r\n          <ion-img [src]=\"'/assets/icon/periculosidade.jpg'\"></ion-img>\r\n          <ion-card-subtitle>Adicional de periculosidade</ion-card-subtitle>\r\n        </ion-card-header>\r\n      </ion-card>\r\n\r\n      <ion-card (click)=\"routerDicas()\">\r\n        <ion-card-header>\r\n          <ion-img [src]=\"'/assets/icon/dicas.jpg'\"></ion-img>\r\n          <ion-card-subtitle>Tabela, dicas e cálculos</ion-card-subtitle>\r\n        </ion-card-header>\r\n      </ion-card>\r\n    </div>\r\n  </div>\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -101,7 +101,7 @@ HomePageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep ion-content {\n  --background: #eceeee;\n}\n::ng-deep ion-menu {\n  --width: 50%;\n}\n::ng-deep ion-toolbar {\n  --background: #0c9abe;\n}\n::ng-deep ion-title {\n  color: #fff;\n  font-size: 1.1em;\n  font-weight: bold;\n  padding-right: 0;\n}\n::ng-deep ion-menu-button {\n  --color: #fff;\n}\n.content-align {\n  position: relative;\n  top: 30px;\n}\n.row {\n  display: flex;\n  width: 100%;\n  align-items: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLHFCQUFBO0FBQUo7QUFHRTtFQUNFLFlBQUE7QUFESjtBQUlFO0VBQ0UscUJBQUE7QUFGSjtBQUtFO0VBQ0UsV0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQUhKO0FBTUU7RUFDRSxhQUFBO0FBSko7QUFTQTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtBQU5GO0FBU0E7RUFDRSxhQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0FBTkYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIHtcbiAgaW9uLWNvbnRlbnQge1xuICAgIC0tYmFja2dyb3VuZDogI2VjZWVlZTtcbiAgfVxuXG4gIGlvbi1tZW51IHtcbiAgICAtLXdpZHRoOiA1MCU7XG4gIH1cblxuICBpb24tdG9vbGJhciB7XG4gICAgLS1iYWNrZ3JvdW5kOiAjMGM5YWJlO1xuICB9XG5cbiAgaW9uLXRpdGxlIHtcbiAgICBjb2xvcjogI2ZmZjtcbiAgICBmb250LXNpemU6IDEuMWVtO1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgIHBhZGRpbmctcmlnaHQ6IDA7XG4gIH1cblxuICBpb24tbWVudS1idXR0b24ge1xuICAgIC0tY29sb3I6ICNmZmY7XG4gIH1cblxufVxuXG4uY29udGVudC1hbGlnbiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAzMHB4O1xufVxuXG4ucm93IHtcbiAgZGlzcGxheTogZmxleDtcbiAgd2lkdGg6IDEwMCU7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep ion-content {\n  --background: #eceeee;\n}\n::ng-deep ion-menu {\n  --width: 50%;\n}\n::ng-deep ion-toolbar {\n  --background: #0c9abe;\n}\n::ng-deep ion-title {\n  color: #fff;\n  font-size: 1.1em;\n  font-weight: bold;\n  padding-right: 0;\n}\n::ng-deep ion-menu-button {\n  --color: #fff;\n}\n.content-align {\n  position: relative;\n  top: 30px;\n}\n.row {\n  display: flex;\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLHFCQUFBO0FBQUo7QUFHRTtFQUNFLFlBQUE7QUFESjtBQUlFO0VBQ0UscUJBQUE7QUFGSjtBQUtFO0VBQ0UsV0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQUhKO0FBTUU7RUFDRSxhQUFBO0FBSko7QUFRQTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtBQUxGO0FBUUE7RUFDRSxhQUFBO0VBQ0EsV0FBQTtBQUxGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjo6bmctZGVlcCB7XHJcbiAgaW9uLWNvbnRlbnQge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjZWNlZWVlO1xyXG4gIH1cclxuXHJcbiAgaW9uLW1lbnUge1xyXG4gICAgLS13aWR0aDogNTAlO1xyXG4gIH1cclxuXHJcbiAgaW9uLXRvb2xiYXIge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjMGM5YWJlO1xyXG4gIH1cclxuXHJcbiAgaW9uLXRpdGxlIHtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG4gICAgZm9udC1zaXplOiAxLjFlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgcGFkZGluZy1yaWdodDogMDtcclxuICB9XHJcblxyXG4gIGlvbi1tZW51LWJ1dHRvbiB7XHJcbiAgICAtLWNvbG9yOiAjZmZmO1xyXG4gIH1cclxufVxyXG5cclxuLmNvbnRlbnQtYWxpZ24ge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB0b3A6IDMwcHg7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgLy9hbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -125,19 +125,24 @@ let HomePage = class HomePage {
     constructor(router) {
         this.router = router;
     }
-    ngOnInit() {
-    }
+    ngOnInit() { }
     routerInss() {
-        this.router.navigate(['/calc-inss']);
+        this.router.navigate(["/calc-inss"]);
     }
     routerIrrf() {
-        this.router.navigate(['/calc-irrf']);
+        this.router.navigate(["/calc-irrf"]);
     }
     routerDissidio() {
-        this.router.navigate(['/calc-dissidio']);
+        this.router.navigate(["/calc-dissidio"]);
     }
     routerDecimoTerceiro() {
-        this.router.navigate(['/calc-decimo-terceiro']);
+        this.router.navigate(["/calc-decimo-terceiro"]);
+    }
+    routerPericulosidade() {
+        this.router.navigate(["/calc-periculosidade"]);
+    }
+    routerDicas() {
+        this.router.navigate(["/dicas"]);
     }
 };
 HomePage.ctorParameters = () => [
@@ -145,7 +150,7 @@ HomePage.ctorParameters = () => [
 ];
 HomePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-home',
+        selector: "app-home",
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./home.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./home.page.scss */ "./src/app/pages/home/home.page.scss")).default]
     })

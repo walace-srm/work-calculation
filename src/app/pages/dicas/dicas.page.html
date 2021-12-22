@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        <ion-label>{{ 'Tabelas e Dicas' | uppercase}}</ion-label>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="salary-item">
+    <b>1 - Histórico do Salário Mínimo</b>
+    <div class="d-flex">
+      <div class="left">
+        <p class="p">{{'Ano de Vigência'}}</p>
+        <hr />
+        <p>{{'Ano 2021'}}</p>
+        <p>{{'Ano 2020'}}</p>
+        <p>{{'Ano 2019'}}</p>
+        <p>{{'Ano 2018'}}</p>
+        <p>{{'Ano 2017'}}</p>
+        <p>{{'Ano 2016'}}</p>
+        <p>{{'Ano 2015'}}</p>
+      </div>
+      <div class="right">
+        <p class="p">{{'Valor Mensal'}}</p>
+        <hr />
+        <p>{{'R$ 1.100,00'}}</p>
+        <p>{{'R$ 1.045,00'}}</p>
+        <p>{{'R$ 998,00'}}</p>
+        <p>{{'R$ 954,00'}}</p>
+        <p>{{'R$ 937,00'}}</p>
+        <p>{{'R$ 880,00'}}</p>
+        <p>{{'R$ 788,00'}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="salary-item">
+    <b>2 - Tabela do INSS até JANEIRO/2021</b>
+    <div class="d-flex">
+      <div class="inss-left">
+        <p class="p">{{'Faixa de Salário'}}</p>
+        <hr />
+        <p>{{'Até R$ 1.100 (salário mínimo)'}}</p>
+        <p>{{'De R$ 1.100,01 até R$ 2.203,48'}}</p>
+        <p>{{'De R$ 2.203,49 até R$ 3.305,22'}}</p>
+        <p>{{'De R$ 3.305,23 até R$ 6.433,57'}}</p>
+      </div>
+      <div class="inss-right">
+        <p class="p">{{'Desconto'}}</p>
+        <hr />
+        <p>{{'7,5%'}}</p>
+        <p>{{'9%'}}</p>
+        <p>{{'12%'}}</p>
+        <p>{{'14%'}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="salary-item">
+    <b>3 - Tabela IRRF 2021</b>
+    <div class="d-flex">
+      <div class="irrf-left">
+        <p class="p">{{'Base Cálculo'}}</p>
+        <hr />
+        <p>{{'Até R$ 1,903,98'}}</p>
+        <p>{{'De 1.903,99 até 2.826,65'}}</p>
+        <p>{{'De 2.826,66 até 3.751,05'}}</p>
+        <p>{{'De 3.751,06 até 4.664,68'}}</p>
+        <p>{{'Acima de 4.664,68'}}</p>
+      </div>
+      <div class="irrf-center">
+        <p class="p">{{'Alíquota'}}</p>
+        <hr />
+        <p>{{'0%'}}</p>
+        <p>{{'7,5%'}}</p>
+        <p>{{'15%'}}</p>
+        <p>{{'22%'}}</p>
+        <p>{{'27%'}}</p>
+      </div>
+      <div class="irrf-right">
+        <p class="p">{{'Dedução'}}</p>
+        <hr />
+        <p>{{'-'}}</p>
+        <p>{{'142,80'}}</p>
+        <p>{{'354,80'}}</p>
+        <p>{{'636,13'}}</p>
+        <p>{{'869,36'}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="salary-item">
+    <b>4 - Adicional Periculosidade</b>
+    <div class="d-flex-danger">
+      <div class="dangerousness">
+        <p>{{'Atividade perigosa que implique o contato permanente com:'}}</p>
+        <ul>
+          <li>Inflamáveis ou explosivos, condições de risco acentuado.</li>
+          <li>Energia elétrica.</li>
+          <li>Substâncias radioativas, ou radiação ionizante.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="salary-item">
+    <b>5 - Adicional Insalubridade</b>
+    <div class="d-flex-danger">
+      <div class="dangerousness">
+        <p>
+          {{'Adicional de insalubridade - exposição de agentes nocivos, com
+          potencial para prejudicar a sua saúde de alguma forma.'}}
+        </p>
+        <p>{{'Como calcular insalubridade?'}}</p>
+        <span
+          >{{'Insalubridade: (SalárioMínimoVigente X 10 para o grau mínimo, X 20
+          para o grau médio ou X 40 para o grau máximo)/100'}}</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="salary-item-final">
+    <b>6 - Adicional Noturno</b>
+    <div class="d-flex-danger">
+      <div class="dangerousness">
+        <p>{{'A todos maiores de 18 anos que:'}}</p>
+        <ul>
+          <li>
+            Trabalham em atividades urbanas (entre 22h de um dia e 5h do dia
+            seguinte).
+          </li>
+          <li>
+            Trabalham em atividades rurais (entre 21h de um dia até 5h do dia
+            seguinte).
+          </li>
+          <li>
+            Trabalham na pecuária (entre 20h de um dia até 4h do dia seguinte).
+          </li>
+        </ul>
+        <b>- {{'Importante: '}}</b>
+        <span
+          >{{'Cada 52:30 (no relógio) efetivamente trabalhadas equivalem a 1h
+          noturna trabalhada. Ao trabalhar 7h, o empregado noturno fecha um dia
+          de 8h. Excessão ao trabalhador rural que deverá contabilizar 60
+          minutos normais.'}}</span
+        >
+      </div>
+    </div>
+  </div>
+  <p class="pl-12">{{'Obs: Este tópico tem objetivo educativo.'}}</p>
+</ion-content>

@@ -34,6 +34,14 @@ const routes: Routes = [
     path: 'calc-decimo-terceiro',
     loadChildren: () => import('./pages/calc-decimo-terceiro/calc-decimo-terceiro.module').then( m => m.CalcDecimoTerceiroPageModule)
   },
+  {
+    path: 'calc-periculosidade',
+    loadChildren: () => import('./pages/calc-periculosidade/calc-periculosidade.module').then( m => m.CalcPericulosidadePageModule)
+  },
+  {
+    path: 'dicas',
+    loadChildren: () => import('./pages/dicas/dicas.module').then( m => m.DicasPageModule)
+  },
 
 ];
 
