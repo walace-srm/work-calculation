@@ -72,7 +72,7 @@ export class CalcInssPage {
 
   async lowerSalaryToast() {
     const toast = await this.toastController.create({
-      message: "Valor inferior ao salário mínimo (R$1.100)",
+      message: "Valor inferior ao salário mínimo (R$1.212)",
       duration: 3000,
       color: "medium",
     });
