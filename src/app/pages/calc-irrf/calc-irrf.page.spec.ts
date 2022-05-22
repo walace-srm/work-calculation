@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { CalcIrrfPage } from './calc-irrf.page';
@@ -7,7 +7,7 @@ describe('CalcIrrfPage', () => {
   let component: CalcIrrfPage;
   let fixture: ComponentFixture<CalcIrrfPage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CalcIrrfPage ],
       imports: [IonicModule.forRoot()]
