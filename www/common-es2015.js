@@ -32,7 +32,7 @@ var PDFGenerator = /** @class */ (function (_super) {
 PDFGenerator.ɵfac = function PDFGenerator_Factory(t) { return ɵPDFGenerator_BaseFactory(t || PDFGenerator); };
 PDFGenerator.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: PDFGenerator, factory: function (t) { return PDFGenerator.ɵfac(t); }, providedIn: 'root' });
 var ɵPDFGenerator_BaseFactory = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetInheritedFactory"](PDFGenerator);
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PDFGenerator, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PDFGenerator, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
         args: [{
                 providedIn: 'root'

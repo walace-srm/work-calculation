@@ -132,54 +132,62 @@ let CalcInssPage = class CalcInssPage {
         this.toastController = toastController;
         this.pdfGenerator = pdfGenerator;
         this.inssForm = this.formBuilder.group({
-            grossSalary: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            inssValue: ['']
+            grossSalary: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            inssValue: [""],
         });
     }
     calcInss() {
         var _a, _b;
-        if (this.grossSalary < 1100) {
+        if (this.grossSalary < 1212) {
             this.lowerSalaryToast();
             this.calculatedInss = undefined;
         }
-        if (this.grossSalary === 1100) {
-            this.inssValue = 82.50;
-            this.calculatedInss = 82.50;
+        if (this.grossSalary === 1212) {
+            this.inssValue = 90.9;
+            this.calculatedInss = 90.9;
             this.aliquota = 7.5;
         }
-        else if ((this.grossSalary > 1100) && (this.grossSalary < 2203.49)) {
-            this.inssValue = 99.31;
-            this.calculatedInss = (this.grossSalary * 9 / 100) - 16.50;
+        else if (this.grossSalary > 1212 && this.grossSalary < 2427.35) {
+            this.inssValue = 109.38;
+            this.calculatedInss = (this.grossSalary * 9) / 100 - 18.18;
             this.aliquota = 9;
         }
-        else if ((this.grossSalary > 2203.48) && (this.grossSalary < 3305.23)) {
-            this.inssValue = 132.21;
-            this.calculatedInss = (this.grossSalary * 12 / 100) - 82.60;
+        else if (this.grossSalary > 2427.36 && this.grossSalary < 3641.03) {
+            this.inssValue = 145.64;
+            this.calculatedInss = (this.grossSalary * 12) / 100 - 91;
             this.aliquota = 12;
         }
-        else if ((this.grossSalary > 3305.22) && (this.grossSalary < 6433.58)) {
-            this.inssValue = 437.96;
-            this.calculatedInss = (this.grossSalary * 14 / 100) - 148.70;
+        else if (this.grossSalary > 3641.04 && this.grossSalary < 7087.22) {
+            this.inssValue = 482.47;
+            this.calculatedInss = (this.grossSalary * 14) / 100 - 163.82;
             this.aliquota = 14;
         }
-        else if ((this.grossSalary > 6433.57)) {
-            this.inssValue = 437.96;
-            this.calculatedInss = (6433.57 * 14 / 100) - 148.70;
-            this.aliquota = 'Teto';
+        else if (this.grossSalary > 7087.22) {
+            this.inssValue = 482.47;
+            this.calculatedInss = (7087.22 * 14) / 100 - 163.82;
+            this.aliquota = "Teto";
         }
         this.inssForm.patchValue({
-            inssValue: (_a = this.calculatedInss) === null || _a === void 0 ? void 0 : _a.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 })
+            inssValue: (_a = this.calculatedInss) === null || _a === void 0 ? void 0 : _a.toLocaleString("pt-BR", {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+            }),
         });
-        this.calculatedInssPdf = (_b = this.calculatedInss) === null || _b === void 0 ? void 0 : _b.toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
-        this.grossSalaryFormatted = this.grossSalary
-            .toLocaleString('pt-BR', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+        this.calculatedInssPdf = (_b = this.calculatedInss) === null || _b === void 0 ? void 0 : _b.toLocaleString("pt-BR", {
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+        });
+        this.grossSalaryFormatted = this.grossSalary.toLocaleString("pt-BR", {
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+        });
     }
     lowerSalaryToast() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
-                message: 'Valor inferior ao salário mínimo (R$1.100)',
+                message: "Valor inferior ao salário mínimo (R$1.212)",
                 duration: 3000,
-                color: 'medium'
+                color: "medium",
             });
             toast.present();
         });
@@ -187,9 +195,9 @@ let CalcInssPage = class CalcInssPage {
     reportSalaryToast() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
-                message: 'Insira o valor do salário!',
+                message: "Insira o valor do salário!",
                 duration: 3000,
-                color: 'medium'
+                color: "medium",
             });
             toast.present();
         });
@@ -203,17 +211,17 @@ let CalcInssPage = class CalcInssPage {
         this.grossSalary = e;
         if (!e) {
             this.inssForm.patchValue({
-                inssValue: this.inssForm.value.inssValue = undefined
+                inssValue: (this.inssForm.value.inssValue = undefined),
             });
             this.calculatedInss = undefined;
         }
     }
     generatorPdf() {
-        const hidden = document.getElementById('remove');
-        hidden.removeAttribute('hidden');
-        hidden.setAttribute('hidden', '');
-        const a = document.getElementById('print');
-        this.pdfGenerator.fromData(a.innerHTML, { type: 'share' });
+        const hidden = document.getElementById("remove");
+        hidden.removeAttribute("hidden");
+        hidden.setAttribute("hidden", "");
+        const a = document.getElementById("print");
+        this.pdfGenerator.fromData(a.innerHTML, { type: "share" });
     }
     onSubmit({ value, valid }) {
         if (!valid) {
@@ -231,7 +239,7 @@ CalcInssPage.ctorParameters = () => [
 ];
 CalcInssPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-calc-inss',
+        selector: "app-calc-inss",
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./calc-inss.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/calc-inss/calc-inss.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./calc-inss.page.scss */ "./src/app/pages/calc-inss/calc-inss.page.scss")).default]
     })
