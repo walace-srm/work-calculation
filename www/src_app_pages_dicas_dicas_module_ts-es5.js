@@ -1,0 +1,254 @@
+(function () {
+  "use strict";
+
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  (self["webpackChunkwork_calculation"] = self["webpackChunkwork_calculation"] || []).push([["src_app_pages_dicas_dicas_module_ts"], {
+    /***/
+    80423:
+    /*!*****************************************************!*\
+      !*** ./src/app/pages/dicas/dicas-routing.module.ts ***!
+      \*****************************************************/
+
+    /***/
+    function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "DicasPageRoutingModule": function DicasPageRoutingModule() {
+          return (
+            /* binding */
+            _DicasPageRoutingModule
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! tslib */
+      3786);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      2316);
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/router */
+      71258);
+      /* harmony import */
+
+
+      var _dicas_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ./dicas.page */
+      69318);
+
+      var routes = [{
+        path: '',
+        component: _dicas_page__WEBPACK_IMPORTED_MODULE_0__.DicasPage
+      }];
+
+      var _DicasPageRoutingModule = /*#__PURE__*/_createClass(function DicasPageRoutingModule() {
+        _classCallCheck(this, DicasPageRoutingModule);
+      });
+
+      _DicasPageRoutingModule = (0, tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_2__.NgModule)({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule.forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule]
+      })], _DicasPageRoutingModule);
+      /***/
+    },
+
+    /***/
+    68256:
+    /*!*********************************************!*\
+      !*** ./src/app/pages/dicas/dicas.module.ts ***!
+      \*********************************************/
+
+    /***/
+    function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "DicasPageModule": function DicasPageModule() {
+          return (
+            /* binding */
+            _DicasPageModule
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! tslib */
+      3786);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      2316);
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/common */
+      54364);
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/forms */
+      1707);
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @ionic/angular */
+      7602);
+      /* harmony import */
+
+
+      var _dicas_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ./dicas-routing.module */
+      80423);
+      /* harmony import */
+
+
+      var _dicas_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./dicas.page */
+      69318);
+
+      var _DicasPageModule = /*#__PURE__*/_createClass(function DicasPageModule() {
+        _classCallCheck(this, DicasPageModule);
+      });
+
+      _DicasPageModule = (0, tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_3__.NgModule)({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.IonicModule, _dicas_routing_module__WEBPACK_IMPORTED_MODULE_0__.DicasPageRoutingModule],
+        declarations: [_dicas_page__WEBPACK_IMPORTED_MODULE_1__.DicasPage]
+      })], _DicasPageModule);
+      /***/
+    },
+
+    /***/
+    69318:
+    /*!*******************************************!*\
+      !*** ./src/app/pages/dicas/dicas.page.ts ***!
+      \*******************************************/
+
+    /***/
+    function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "DicasPage": function DicasPage() {
+          return (
+            /* binding */
+            _DicasPage
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! tslib */
+      3786);
+      /* harmony import */
+
+
+      var _C_Users_Walace_Documents_work_calculation_node_modules_ngtools_webpack_src_loaders_direct_resource_js_dicas_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./dicas.page.html */
+      48419);
+      /* harmony import */
+
+
+      var _dicas_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./dicas.page.scss */
+      50402);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      2316);
+
+      var _DicasPage = /*#__PURE__*/function () {
+        function DicasPage() {
+          _classCallCheck(this, DicasPage);
+        }
+
+        _createClass(DicasPage, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return DicasPage;
+      }();
+
+      _DicasPage.ctorParameters = function () {
+        return [];
+      };
+
+      _DicasPage = (0, tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+        selector: 'app-dicas',
+        template: _C_Users_Walace_Documents_work_calculation_node_modules_ngtools_webpack_src_loaders_direct_resource_js_dicas_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        styles: [_dicas_page_scss__WEBPACK_IMPORTED_MODULE_1__]
+      })], _DicasPage);
+      /***/
+    },
+
+    /***/
+    48419:
+    /*!************************************************************************************************************!*\
+      !*** ./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./src/app/pages/dicas/dicas.page.html ***!
+      \************************************************************************************************************/
+
+    /***/
+    function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n    <ion-title>\n      <div class=\"title\">\n        <ion-label>{{ 'Tabelas e Dicas' | uppercase}}</ion-label>\n      </div>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"salary-item\">\n    <b>1 - Histórico do Salário Mínimo</b>\n    <div class=\"d-flex\">\n      <div class=\"left\">\n        <p class=\"p\">{{'Ano de Vigência'}}</p>\n        <hr />\n        <p>{{'Ano 2022'}}</p>\n        <p>{{'Ano 2021'}}</p>\n        <p>{{'Ano 2020'}}</p>\n        <p>{{'Ano 2019'}}</p>\n        <p>{{'Ano 2018'}}</p>\n        <p>{{'Ano 2017'}}</p>\n        <p>{{'Ano 2016'}}</p>\n        <p>{{'Ano 2015'}}</p>\n      </div>\n      <div class=\"right\">\n        <p class=\"p\">{{'Valor Mensal'}}</p>\n        <hr />\n        <p>{{'R$ 1.212,00'}}</p>\n        <p>{{'R$ 1.100,00'}}</p>\n        <p>{{'R$ 1.045,00'}}</p>\n        <p>{{'R$ 998,00'}}</p>\n        <p>{{'R$ 954,00'}}</p>\n        <p>{{'R$ 937,00'}}</p>\n        <p>{{'R$ 880,00'}}</p>\n        <p>{{'R$ 788,00'}}</p>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"salary-item\">\n    <b>2 - Tabela do INSS até JANEIRO/2021</b>\n    <div class=\"d-flex\">\n      <div class=\"inss-left\">\n        <p class=\"p\">{{'Faixa de Salário'}}</p>\n        <hr />\n        <p>{{'Até R$ 1.100 (salário mínimo)'}}</p>\n        <p>{{'De R$ 1.100,01 até R$ 2.203,48'}}</p>\n        <p>{{'De R$ 2.203,49 até R$ 3.305,22'}}</p>\n        <p>{{'De R$ 3.305,23 até R$ 6.433,57'}}</p>\n      </div>\n      <div class=\"inss-right\">\n        <p class=\"p\">{{'Desconto'}}</p>\n        <hr />\n        <p>{{'7,5%'}}</p>\n        <p>{{'9%'}}</p>\n        <p>{{'12%'}}</p>\n        <p>{{'14%'}}</p>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"salary-item\">\n    <b>3 - Tabela IRRF 2021</b>\n    <div class=\"d-flex\">\n      <div class=\"irrf-left\">\n        <p class=\"p\">{{'Base Cálculo'}}</p>\n        <hr />\n        <p>{{'Até R$ 1,903,98'}}</p>\n        <p>{{'De 1.903,99 até 2.826,65'}}</p>\n        <p>{{'De 2.826,66 até 3.751,05'}}</p>\n        <p>{{'De 3.751,06 até 4.664,68'}}</p>\n        <p>{{'Acima de 4.664,68'}}</p>\n      </div>\n      <div class=\"irrf-center\">\n        <p class=\"p\">{{'Alíquota'}}</p>\n        <hr />\n        <p>{{'0%'}}</p>\n        <p>{{'7,5%'}}</p>\n        <p>{{'15%'}}</p>\n        <p>{{'22%'}}</p>\n        <p>{{'27%'}}</p>\n      </div>\n      <div class=\"irrf-right\">\n        <p class=\"p\">{{'Dedução'}}</p>\n        <hr />\n        <p>{{'-'}}</p>\n        <p>{{'142,80'}}</p>\n        <p>{{'354,80'}}</p>\n        <p>{{'636,13'}}</p>\n        <p>{{'869,36'}}</p>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"salary-item\">\n    <b>4 - Adicional Periculosidade</b>\n    <div class=\"d-flex-danger\">\n      <div class=\"dangerousness\">\n        <p>{{'Atividade perigosa que implique o contato permanente com:'}}</p>\n        <ul>\n          <li>Inflamáveis ou explosivos, condições de risco acentuado.</li>\n          <li>Energia elétrica.</li>\n          <li>Substâncias radioativas, ou radiação ionizante.</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"salary-item\">\n    <b>5 - Adicional Insalubridade</b>\n    <div class=\"d-flex-danger\">\n      <div class=\"dangerousness\">\n        <p>\n          {{'Adicional de insalubridade - exposição de agentes nocivos, com\n          potencial para prejudicar a sua saúde de alguma forma.'}}\n        </p>\n        <p>{{'Como calcular insalubridade?'}}</p>\n        <span\n          >{{'Insalubridade: (SalárioMínimoVigente X 10 para o grau mínimo, X 20\n          para o grau médio ou X 40 para o grau máximo)/100'}}</span\n        >\n      </div>\n    </div>\n  </div>\n\n  <div class=\"salary-item-final\">\n    <b>6 - Adicional Noturno</b>\n    <div class=\"d-flex-danger\">\n      <div class=\"dangerousness\">\n        <p>{{'A todos maiores de 18 anos que:'}}</p>\n        <ul>\n          <li>\n            Trabalham em atividades urbanas (entre 22h de um dia e 5h do dia\n            seguinte).\n          </li>\n          <li>\n            Trabalham em atividades rurais (entre 21h de um dia até 5h do dia\n            seguinte).\n          </li>\n          <li>\n            Trabalham na pecuária (entre 20h de um dia até 4h do dia seguinte).\n          </li>\n        </ul>\n        <b>- {{'Importante: '}}</b>\n        <span\n          >{{'Cada 52:30 (no relógio) efetivamente trabalhadas equivalem a 1h\n          noturna trabalhada. Ao trabalhar 7h, o empregado noturno fecha um dia\n          de 8h. Excessão ao trabalhador rural que deverá contabilizar 60\n          minutos normais.'}}</span\n        >\n      </div>\n    </div>\n  </div>\n  <p class=\"pl-12\">{{'Obs: Este tópico tem objetivo educativo.'}}</p>\n</ion-content>\n";
+      /***/
+    },
+
+    /***/
+    50402:
+    /*!*********************************************!*\
+      !*** ./src/app/pages/dicas/dicas.page.scss ***!
+      \*********************************************/
+
+    /***/
+    function _(module) {
+      module.exports = "::ng-deep ion-content {\n  --background: #eceeee;\n}\n::ng-deep ion-title {\n  color: #fff;\n  font-size: 1.1em;\n  font-weight: bold;\n  padding-right: 0;\n}\n::ng-deep ion-toolbar {\n  --background: #0c9abe;\n}\n::ng-deep ion-back-button {\n  --color: #fff;\n}\n::ng-deep ion-item {\n  margin-top: 16px;\n}\n::ng-deep .display {\n  display: inline;\n  display: initial;\n  padding: 7px;\n}\nli {\n  font-size: 15px;\n}\n.salary-item {\n  background: white;\n  padding: 19px;\n  margin-top: 17px;\n}\n.salary-item-final {\n  background: white;\n  padding: 19px;\n  margin-top: 17px;\n}\n.d-flex {\n  display: flex;\n  width: 100%;\n  padding-top: 9px;\n  text-align: center;\n}\n.d-flex-danger {\n  display: flex;\n  width: 100%;\n  padding-top: 9px;\n}\n.left {\n  width: 50%;\n}\n.right {\n  width: 50%;\n}\n.inss-left {\n  width: 75%;\n}\n.inss-right {\n  width: 25%;\n}\n.irrf-left {\n  width: 60%;\n}\n.irrf-center {\n  width: 20%;\n}\n.irff-right {\n  width: 20%;\n}\n.dangerousness {\n  width: 100%;\n}\nhr {\n  background: black;\n}\n.pl-12 {\n  padding-left: 12px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRpY2FzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLHFCQUFBO0FBQUo7QUFHRTtFQUNFLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUFESjtBQUlFO0VBQ0UscUJBQUE7QUFGSjtBQUtFO0VBQ0UsYUFBQTtBQUhKO0FBS0U7RUFDRSxnQkFBQTtBQUhKO0FBS0U7RUFDRSxlQUFBO0VBQUEsZ0JBQUE7RUFDQSxZQUFBO0FBSEo7QUFNQTtFQUNFLGVBQUE7QUFIRjtBQU1BO0VBQ0UsaUJBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7QUFIRjtBQU1BO0VBQ0UsaUJBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7QUFIRjtBQU1BO0VBQ0UsYUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0FBSEY7QUFNQTtFQUNFLGFBQUE7RUFDQSxXQUFBO0VBQ0EsZ0JBQUE7QUFIRjtBQU1BO0VBQ0UsVUFBQTtBQUhGO0FBTUE7RUFDRSxVQUFBO0FBSEY7QUFNQTtFQUNFLFVBQUE7QUFIRjtBQU1BO0VBQ0UsVUFBQTtBQUhGO0FBTUE7RUFDRSxVQUFBO0FBSEY7QUFNQTtFQUNFLFVBQUE7QUFIRjtBQU1BO0VBQ0UsVUFBQTtBQUhGO0FBTUE7RUFDRSxXQUFBO0FBSEY7QUFNQTtFQUNFLGlCQUFBO0FBSEY7QUFNQTtFQUNFLGtCQUFBO0FBSEYiLCJmaWxlIjoiZGljYXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIHtcclxuICBpb24tY29udGVudCB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNlY2VlZWU7XHJcbiAgfVxyXG5cclxuICBpb24tdGl0bGUge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIH1cclxuXHJcbiAgaW9uLXRvb2xiYXIge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjMGM5YWJlO1xyXG4gIH1cclxuXHJcbiAgaW9uLWJhY2stYnV0dG9uIHtcclxuICAgIC0tY29sb3I6ICNmZmY7XHJcbiAgfVxyXG4gIGlvbi1pdGVtIHtcclxuICAgIG1hcmdpbi10b3A6IDE2cHg7XHJcbiAgfVxyXG4gIC5kaXNwbGF5IHtcclxuICAgIGRpc3BsYXk6IGluaXRpYWw7XHJcbiAgICBwYWRkaW5nOiA3cHg7XHJcbiAgfVxyXG59XHJcbmxpIHtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbi5zYWxhcnktaXRlbSB7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgcGFkZGluZzogMTlweDtcclxuICBtYXJnaW4tdG9wOiAxN3B4O1xyXG59XHJcblxyXG4uc2FsYXJ5LWl0ZW0tZmluYWwge1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIHBhZGRpbmc6IDE5cHg7XHJcbiAgbWFyZ2luLXRvcDogMTdweDtcclxufVxyXG5cclxuLmQtZmxleCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICB3aWR0aDogMTAwJTtcclxuICBwYWRkaW5nLXRvcDogOXB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuLmQtZmxleC1kYW5nZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgcGFkZGluZy10b3A6IDlweDtcclxufVxyXG5cclxuLmxlZnQge1xyXG4gIHdpZHRoOiA1MCU7XHJcbn1cclxuXHJcbi5yaWdodCB7XHJcbiAgd2lkdGg6IDUwJTtcclxufVxyXG5cclxuLmluc3MtbGVmdCB7XHJcbiAgd2lkdGg6IDc1JTtcclxufVxyXG5cclxuLmluc3MtcmlnaHQge1xyXG4gIHdpZHRoOiAyNSU7XHJcbn1cclxuXHJcbi5pcnJmLWxlZnQge1xyXG4gIHdpZHRoOiA2MCU7XHJcbn1cclxuXHJcbi5pcnJmLWNlbnRlciB7XHJcbiAgd2lkdGg6IDIwJTtcclxufVxyXG5cclxuLmlyZmYtcmlnaHQge1xyXG4gIHdpZHRoOiAyMCU7XHJcbn1cclxuXHJcbi5kYW5nZXJvdXNuZXNzIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuaHIge1xyXG4gIGJhY2tncm91bmQ6IGJsYWNrO1xyXG59XHJcblxyXG4ucGwtMTIge1xyXG4gIHBhZGRpbmctbGVmdDogMTJweDtcclxufVxyXG4iXX0= */";
+      /***/
+    }
+  }]);
+})();
+//# sourceMappingURL=src_app_pages_dicas_dicas_module_ts-es5.js.map

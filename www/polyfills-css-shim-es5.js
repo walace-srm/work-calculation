@@ -1,17 +1,15 @@
 (function () {
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["polyfills-css-shim"], {
+  (self["webpackChunkwork_calculation"] = self["webpackChunkwork_calculation"] || []).push([["polyfills-css-shim"], {
     /***/
-    "./node_modules/@ionic/core/dist/esm/css-shim-419db344.js":
+    76065:
     /*!****************************************************************!*\
-      !*** ./node_modules/@ionic/core/dist/esm/css-shim-419db344.js ***!
+      !*** ./node_modules/@ionic/core/dist/esm/css-shim-2ccf4dec.js ***!
       \****************************************************************/
 
-    /*! no static exports found */
-
     /***/
-    function node_modulesIonicCoreDistEsmCssShim419db344Js(module, exports) {
+    function _() {
       /*
-       Stencil Client Patch Esm v2.1.2 | MIT Licensed | https://stenciljs.com
+       Stencil Client Patch Esm v2.5.0 | MIT Licensed | https://stenciljs.com
        */
       var _assign = function __assign() {
         return (_assign = Object.assign || function (e) {

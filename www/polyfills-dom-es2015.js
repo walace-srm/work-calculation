@@ -1,11 +1,10 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["polyfills-dom"],{
+(self["webpackChunkwork_calculation"] = self["webpackChunkwork_calculation"] || []).push([["polyfills-dom"],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/polyfills/dom.js":
+/***/ 4180:
 /*!************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/polyfills/dom.js ***!
   \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 (function(){
   /*
